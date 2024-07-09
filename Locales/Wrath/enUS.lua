@@ -27,48 +27,98 @@ L["DefaultValueText"] = Ns.Colors.Green .. "\n\nDefault value:|r  "
 L["ScalingText"] = Ns.Colors.Green .. "\nTarget Scaling|r \n"
 
 L["CommonScaling"] = "This stat scales with other stats\n"
-L["Enhanced_BaseTooltip"] = Ns.Colors.Green .. "Enhanced|r\n" .. "Provides the best accuracy by adding \ntalents, debuffs, flasks, gems, glyphs, \nenchants and other sources \n\n" .. Ns.Colors.Green .. "Basic|r\n" .. "Displays the stat as shown on the \ncharacter panel, without additions \nand may not be the most accurate"
-L["Percent_RatingTooltip"] = Ns.Colors.Green .. "Percentage|r\n" .. "Displays the stat in percentage \n\n" .. Ns.Colors.Green .. "Rating|r\n" .. "Displays the rating value"
-L["Main_Off_HandTooltip"] = Ns.Colors.Green .. "Main-Hand|r\n" .. "Main-Hand weapon value \n\n" .. Ns.Colors.Green .. "Off-Hand|r\n" .. "Off-Hand weapon value\n\n" .. Ns.Colors.Green .. "Auto|r\n" .. "detects the Off-Hand value and \ndisplays the stat if applicable \n"
-L["Level_Same_BossTooltip"] = Ns.Colors.Green .. "Same Level|r\n" .. "Chance to miss against an NPC \nof the same level as yours \n\n" .. Ns.Colors.Green .. "Boss Level|r\n" .. "Chance to miss against an NPC \nof 1 to 5 level higher than yours \nSee the Default cap below"
-L["Crit_Damage_TakenTooltip"] = Ns.Colors.Green .. "Crit Taken|r\n" .. "Reduction in periodic damage and in \nthe chance to be critically hit \n\n" .. Ns.Colors.Green .. "Damage Taken|r\n" .. "Reduction in mana-drains effects and \nin the damage of critical strikes"
-L["Chance_ReductionTooltip"] = Ns.Colors.Green .. "Chance|r\n" .. "Chance to be critically hit \n\n" .. Ns.Colors.Green .. "Reduction|r\n" .. "Percentage to reach Crit \nImmunity"
-L["Total_RatingTooltip"] = Ns.Colors.Green .. "Total|r\n" .. "Includes the base and bonus defense \nvalues \n\n" .. Ns.Colors.Green .. "Rating|r\n" .. "Displays your Defense rating value"
-L["Max_Average_DamageTooltip"] = Ns.Colors.Green .. "Max|r\n" .. "Displays your maximum ranged damage \n\n" .. Ns.Colors.Green .. "Average|r\n" .. "Switches from max to average values"
-L["Regen_Normal_CastingTooltip"] = Ns.Colors.Green .. "Normal|r\n" .. "Mana regeneration while not casting, \noutside the 5-second rule \n\n" .. Ns.Colors.Green .. "Casting|r\n" .. "Mana regeneration while casting, \ninside the 5-second rule"
-L["World_RealmTooltip"] = Ns.Colors.Green .. "Realm|r\n" .. "Average latency from your computer to \nthe Blizzard server in milliseconds\n\n" .. Ns.Colors.Green .. "World|r\n" .. "In-game latency from your computer to \nthe Game World"
-L["Main_Off_AutoTooltip"] = Ns.Colors.Green .. "Main-Hand|r\n" .. "Main-Hand weapon value \n\n" .. Ns.Colors.Green .. "Off-Hand|r\n" .. "Off-Hand weapon value\n\n" .. Ns.Colors.Green .. "Auto|r\n" .. "detects the Off-Hand value and \ndisplays the stat if applicable"
-L["Heroism_ValorTooltip"] = Ns.Colors.Green .. "Heroism|r\n" .. "Displays the amount of Emblems of Heroism \n\n" .. Ns.Colors.Green .. "Valor|r\n" .. "Displays the amount of Emblems of Valor"
-L["Total_Equipped_BagsTooltip"] = Ns.Colors.Green .. "Total|r\n" .. "Combined repair cost of your equipped \ngear and the gear in your bags \n\n" .. Ns.Colors.Green .. "Equipped|r\n" .. "Repair of cost your equipped gear only \n\n" .. Ns.Colors.Green .. "Bags|r\n" .. "Repair cost of your gear in bags only"
-L["Shards_MarksTooltip"] = Ns.Colors.Green .. "Stone Keeper|r\n" .. "Displays the amount of Stone Keeper's Shard \n\n" .. Ns.Colors.Green .. "Honor Marks|r\n" .. "Displays the amount of Wintergrasp Mark of Honor"
-L["Player_PetTooltip"] = Ns.Colors.Green .. "Player|r\n" .. "Displays the player's resistance \n\n" .. Ns.Colors.Green .. "Pet|r\n" .. "Displays your pet's resistance"
-L["Mood_DamageTooltip"] = Ns.Colors.Green .. "Mood|r\n" .. "Displays information about your Pet's mood \n\n" .. Ns.Colors.Green .. "Damage|r\n" .. "Displays your Pet's damage modifier"
-L["Honor_ArenaTooltip"] = Ns.Colors.Green .. "Honor|r\n" .. "Displays your total Honor points \n\n" .. Ns.Colors.Green .. "Arena|r\n" .. "Displays your total Arena points"
-L["Speed_StaticTooltip"] = Ns.Colors.Green .. "Real-time|r\n" .. "Displays the movement speed of your character's \nevery movement, in real-time (Standing, running, \nswimming, flying, RP walking, etc.) \n\n" .. Ns.Colors.Green .. "Static|r\n" .. "Your character's movement speed is static and \nwill change only when traveling methods change"
-L["Total_ModifiersTooltip"] = Ns.Colors.Green .. "Total|r\n" .. "Displays your total Mitigation, including \nall added modifiers \n\n" .. Ns.Colors.Green .. "Base|r\n" .. "Displays your base Mitigation without \nany modifiers \n\n" .. Ns.Colors.Green .. "Modifiers|r\n" .. "Displays the percentage of all your \nMitigation modifiers"
+L["Enhanced_BaseTooltip"] = Ns.Colors.Green .. "Enhanced|r\n" ..
+                                "Provides the best accuracy by adding \ntalents, debuffs, flasks, gems, glyphs, \nenchants and other sources \n\n" ..
+                                Ns.Colors.Green .. "Basic|r\n" ..
+                                "Displays the stat as shown on the \ncharacter panel, without additions \nand may not be the most accurate"
+L["Percent_RatingTooltip"] = Ns.Colors.Green .. "Percentage|r\n" .. "Displays the stat in percentage \n\n" ..
+                                 Ns.Colors.Green .. "Rating|r\n" .. "Displays the rating value"
+L["Main_Off_HandTooltip"] = Ns.Colors.Green .. "Main-Hand|r\n" .. "Main-Hand weapon value \n\n" .. Ns.Colors.Green ..
+                                "Off-Hand|r\n" .. "Off-Hand weapon value\n\n" .. Ns.Colors.Green .. "Auto|r\n" ..
+                                "detects the Off-Hand value and \ndisplays the stat if applicable \n"
+L["Level_Same_BossTooltip"] = Ns.Colors.Green .. "Same Level|r\n" ..
+                                  "Chance to miss against an NPC \nof the same level as yours \n\n" .. Ns.Colors.Green ..
+                                  "Boss Level|r\n" ..
+                                  "Chance to miss against an NPC \nof 1 to 5 level higher than yours \nSee the Default cap below"
+L["Crit_Damage_TakenTooltip"] = Ns.Colors.Green .. "Crit Taken|r\n" ..
+                                    "Reduction in periodic damage and in \nthe chance to be critically hit \n\n" ..
+                                    Ns.Colors.Green .. "Damage Taken|r\n" ..
+                                    "Reduction in mana-drains effects and \nin the damage of critical strikes"
+L["Chance_ReductionTooltip"] =
+    Ns.Colors.Green .. "Chance|r\n" .. "Chance to be critically hit \n\n" .. Ns.Colors.Green .. "Reduction|r\n" ..
+        "Percentage to reach Crit \nImmunity"
+L["Total_RatingTooltip"] = Ns.Colors.Green .. "Total|r\n" .. "Includes the base and bonus defense \nvalues \n\n" ..
+                               Ns.Colors.Green .. "Rating|r\n" .. "Displays your Defense rating value"
+L["Max_Average_DamageTooltip"] = Ns.Colors.Green .. "Max|r\n" .. "Displays your maximum ranged damage \n\n" ..
+                                     Ns.Colors.Green .. "Average|r\n" .. "Switches from max to average values"
+L["Regen_Normal_CastingTooltip"] = Ns.Colors.Green .. "Normal|r\n" ..
+                                       "Mana regeneration while not casting, \noutside the 5-second rule \n\n" ..
+                                       Ns.Colors.Green .. "Casting|r\n" ..
+                                       "Mana regeneration while casting, \ninside the 5-second rule"
+L["World_RealmTooltip"] = Ns.Colors.Green .. "Realm|r\n" ..
+                              "Average latency from your computer to \nthe Blizzard server in milliseconds\n\n" ..
+                              Ns.Colors.Green .. "World|r\n" .. "In-game latency from your computer to \nthe Game World"
+L["Main_Off_AutoTooltip"] = Ns.Colors.Green .. "Main-Hand|r\n" .. "Main-Hand weapon value \n\n" .. Ns.Colors.Green ..
+                                "Off-Hand|r\n" .. "Off-Hand weapon value\n\n" .. Ns.Colors.Green .. "Auto|r\n" ..
+                                "detects the Off-Hand value and \ndisplays the stat if applicable"
+L["Heroism_ValorTooltip"] = Ns.Colors.Green .. "Heroism|r\n" .. "Displays the amount of Emblems of Heroism \n\n" ..
+                                Ns.Colors.Green .. "Valor|r\n" .. "Displays the amount of Emblems of Valor"
+L["Total_Equipped_BagsTooltip"] = Ns.Colors.Green .. "Total|r\n" ..
+                                      "Combined repair cost of your equipped \ngear and the gear in your bags \n\n" ..
+                                      Ns.Colors.Green .. "Equipped|r\n" .. "Repair of cost your equipped gear only \n\n" ..
+                                      Ns.Colors.Green .. "Bags|r\n" .. "Repair cost of your gear in bags only"
+L["Shards_MarksTooltip"] =
+    Ns.Colors.Green .. "Stone Keeper|r\n" .. "Displays the amount of Stone Keeper's Shard \n\n" .. Ns.Colors.Green ..
+        "Honor Marks|r\n" .. "Displays the amount of Wintergrasp Mark of Honor"
+L["Player_PetTooltip"] =
+    Ns.Colors.Green .. "Player|r\n" .. "Displays the player's resistance \n\n" .. Ns.Colors.Green .. "Pet|r\n" ..
+        "Displays your pet's resistance"
+L["Mood_DamageTooltip"] = Ns.Colors.Green .. "Mood|r\n" .. "Displays information about your Pet's mood \n\n" ..
+                              Ns.Colors.Green .. "Damage|r\n" .. "Displays your Pet's damage modifier"
+L["Honor_ArenaTooltip"] =
+    Ns.Colors.Green .. "Honor|r\n" .. "Displays your total Honor points \n\n" .. Ns.Colors.Green .. "Arena|r\n" ..
+        "Displays your total Arena points"
+L["Speed_StaticTooltip"] = Ns.Colors.Green .. "Real-time|r\n" ..
+                               "Displays the movement speed of your character's \nevery movement, in real-time (Standing, running, \nswimming, flying, RP walking, etc.) \n\n" ..
+                               Ns.Colors.Green .. "Static|r\n" ..
+                               "Your character's movement speed is static and \nwill change only when traveling methods change"
+L["Total_ModifiersTooltip"] = Ns.Colors.Green .. "Total|r\n" ..
+                                  "Displays your total Mitigation, including \nall added modifiers \n\n" ..
+                                  Ns.Colors.Green .. "Base|r\n" ..
+                                  "Displays your base Mitigation without \nany modifiers \n\n" .. Ns.Colors.Green ..
+                                  "Modifiers|r\n" .. "Displays the percentage of all your \nMitigation modifiers"
 
-L["Display_MainHandTooltip"] = Ns.Colors.Green .. "Main-Hand Only|r\n" .. "Disables the automatic \ndisplay of the Off-hand \nvalue if applicable"
+L["Display_MainHandTooltip"] = Ns.Colors.Green .. "Main-Hand Only|r\n" ..
+                                   "Disables the automatic \ndisplay of the Off-hand \nvalue if applicable"
 L["Display_AverageTooltip"] = Ns.Colors.Green .. "Average|r\n" .. "Switches from max to average \nvalues"
-L["Display_BasicTooltip"] = Ns.Colors.Green .. "Basic|r\n" .. "Displays the stat as shown on the \ncharacter panel, without additions \nand may not be the most accurate"
-L["Display_SimulateTooltip"] = Ns.Colors.Green .. "Simulate|r\n" .. "Shows your stat value gathered \nfrom your actual numbers done \nin combat \n\nThe simulated value resets upon \nentering combat and doing damage \nagain"
+L["Display_BasicTooltip"] = Ns.Colors.Green .. "Basic|r\n" ..
+                                "Displays the stat as shown on the \ncharacter panel, without additions \nand may not be the most accurate"
+L["Display_SimulateTooltip"] = Ns.Colors.Green .. "Simulate|r\n" ..
+                                   "Shows your stat value gathered \nfrom your actual numbers done \nin combat \n\nThe simulated value resets upon \nentering combat and doing damage \nagain"
 
 L["AP"] = "AP"
 L["APAbrev"] = "AP"
 L["APMenu"] = "Attack Power"
 L["APTip"] = ""
-L["APDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red .. "Attack Power|r in red indicates that you are affected by a debuff"
+L["APDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red ..
+                         "Attack Power|r in red indicates that you are affected by a debuff"
 
 L["DMG"] = "Damage"
 L["DMGAbrev"] = "DMG"
 L["DMGMenu"] = "Damage"
 L["DMGTip"] = ""
-L["DMGDescription"] = L["SinLive"].. Ns.Colors.Red .. "Damage|r in red indicates that you are affected by a debuff \n" .. L["ScalingText"] .. L["BloodFrenzy"] .. Ns.HemoLink .. L["SavageCombat"] .. L["Crusade"] .. L["TundraStalker"] .. "\n" .. L["RageofRivendare"] .. Ns.BeaSlayLink
+L["DMGDescription"] =
+    L["SinLive"] .. Ns.Colors.Red .. "Damage|r in red indicates that you are affected by a debuff \n" ..
+        L["ScalingText"] .. L["BloodFrenzy"] .. Ns.HemoLink .. L["SavageCombat"] .. L["Crusade"] .. L["TundraStalker"] ..
+        "\n" .. L["RageofRivendare"] .. Ns.BeaSlayLink
 
 L["mDPS"] = "DPS"
 L["mDPSAbrev"] = "DPS"
 L["mDPSMenu"] = "DPS"
 L["mDPSTip"] = ""
-L["mDPSDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red .. "DPS|r in red indicates that you are affected by a debuff \n" .. "This stat scales with Attack Speed and Damage stats"
+L["mDPSDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red ..
+                           "DPS|r in red indicates that you are affected by a debuff \n" ..
+                           "This stat scales with Attack Speed and Damage stats"
 
 L["Cap_Melee_Hit"] = "Hit Cap"
 
@@ -76,31 +126,39 @@ L["Crit"] = "Crit"
 L["CritAbrev"] = "Crit"
 L["CritMenu"] = "Critical"
 L["CritTip"] = ""
-L["CritDescription"] = L["SinLive"] .. "Spell book Critical Strike value. Also represents your Critical Strike in PvP \n" .. L["ScalingText"] .. Ns.HearCrusLink .. Ns.TotWrathLink .. L["MasterPoisoner"]
+L["CritDescription"] = L["SinLive"] ..
+                           "Spell book Critical Strike value. Also represents your Critical Strike in PvP \n" ..
+                           L["ScalingText"] .. Ns.HearCrusLink .. Ns.TotWrathLink .. L["MasterPoisoner"]
 
 L["CritBoss"] = "Crit+"
 L["CritBossAbrev"] = "Crit+"
 L["CritBossMenu"] = "Critical vs Boss"
 L["CritBossTip"] = ""
-L["CritBossDescription"] = L["SinLive"] .. "Critical Strike value in PvE, against higher level NPCs. Includes all Crit Suppressions auras" .. L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPC1to5"] .. Ns.HearCrusLink .. Ns.TotWrathLink .. L["MasterPoisoner"]
+L["CritBossDescription"] = L["SinLive"] ..
+                               "Critical Strike value in PvE, against higher level NPCs. Includes all Crit Suppressions auras" ..
+                               L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPC1to5"] ..
+                               Ns.HearCrusLink .. Ns.TotWrathLink .. L["MasterPoisoner"]
 
 L["CritCap"] = "Crit Cap"
 L["CritCapAbrev"] = "Cap"
 L["CritCapMenu"] = "Critical Cap"
 L["CritCapTip"] = ""
-L["CritCapDescription"] = L["TipsAndInfo"] .. "Displays the Critical Strike Cap against a Boss level. This stat scales with your current weapons \n" .. Ns.Colors.Red .. "Crit Cap|r in red indicates that you have reached the Critical cap\n\n"
+L["CritCapDescription"] = L["TipsAndInfo"] ..
+                              "Displays the Critical Strike Cap against a Boss level. This stat scales with your current weapons \n" ..
+                              Ns.Colors.Red .. "Crit Cap|r in red indicates that you have reached the Critical cap\n\n"
 
 L["Hit"] = "Hit"
 L["HitAbrev"] = "Hit"
 L["HitMenu"] = "Hit"
 L["HitTip"] = ""
-L["HitDescription"] = L["TipsAndInfo"] .. Ns.Colors.Green .. "Hit|r in green indicates that you have reached your Hit cap"
+L["HitDescription"] = L["TipsAndInfo"] .. Ns.Colors.Green ..
+                          "Hit|r in green indicates that you have reached your Hit cap"
 
 L["HasteMelee"] = "Haste"
 L["HasteMeleeAbrev"] = "Has"
 L["HasteMeleeMenu"] = "Haste"
 L["HasteMeleeTip"] = ""
-L["HasteMeleeDescription"] =  ""
+L["HasteMeleeDescription"] = ""
 
 L["weaponSpeed"] = "Atk Speed"
 L["weaponSpeedAbrev"] = "As"
@@ -112,55 +170,76 @@ L["Expertise"] = "Expertise"
 L["ExpertiseAbrev"] = "Exp"
 L["ExpertiseMenu"] = "Expertise"
 L["ExpertiseTip"] = ""
-L["ExpertiseDescription"] = L["TipsAndInfo"] .. "Reduction to be dodged or parried in percentage, rating or both \n" .. Ns.Colors.Green .. "Expertise|r in green indicates that you have reached your Expertise cap"
+L["ExpertiseDescription"] = L["TipsAndInfo"] .. "Reduction to be dodged or parried in percentage, rating or both \n" ..
+                                Ns.Colors.Green ..
+                                "Expertise|r in green indicates that you have reached your Expertise cap"
 
 L["ArmorPen"] = "Armor Pen"
 L["ArmorPenAbrev"] = "ArP"
 L["ArmorPenMenu"] = "Penetration"
 L["ArmorPenTip"] = ""
-L["ArmorPenDescription"] = L["TipsAndInfo"] .. "Target's armor value ignored by your physical attacks in percentage, rating or both"
+L["ArmorPenDescription"] = L["TipsAndInfo"] ..
+                               "Target's armor value ignored by your physical attacks in percentage, rating or both"
 
 L["NPCArmor"] = "Armor+"
 L["NPCArmorAbrev"] = "Arm+"
 L["NPCArmorMenu"] = "Boss Armor"
 L["NPCArmorTip"] = ""
-L["NPCArmorDescription"] = L["SinLive"] .. "Armor value of a raid boss. A target must be selected for its armor to be displayed \n" .. L["ScalingText"] .. L["BossArmorModifier"] .. Ns.SunArmLink .. Ns.ExpArmLink .. Ns.FaeFireLink .. Ns.CursWeaLink
+L["NPCArmorDescription"] = L["SinLive"] ..
+                               "Armor value of a raid boss. A target must be selected for its armor to be displayed \n" ..
+                               L["ScalingText"] .. L["BossArmorModifier"] .. Ns.SunArmLink .. Ns.ExpArmLink ..
+                               Ns.FaeFireLink .. Ns.CursWeaLink
 
 L["BossReduc"] = "DMG+"
 L["BossReducAbrev"] = "DMG+"
 L["BossReducMenu"] = "Damage Mod"
 L["BossReducTip"] = ""
-L["BossReducDescription"] = L["SinLive"] .. "Damage increase through debuffs. Modifiers are debuffs (listed below) and the armor value of your target \nWhen targeting a non-Raid Boss, the total reduction will be shown instead. A target must be selected to see any number\n" .. L["ScalingText"] .. L["NPCPlus3"] .. L["BossArmorModifier"] .. Ns.SunArmLink .. Ns.ExpArmLink .. Ns.FaeFireLink .. Ns.CursWeaLink
+L["BossReducDescription"] = L["SinLive"] ..
+                                "Damage increase through debuffs. Modifiers are debuffs (listed below) and the armor value of your target \nWhen targeting a non-Raid Boss, the total reduction will be shown instead. A target must be selected to see any number\n" ..
+                                L["ScalingText"] .. L["NPCPlus3"] .. L["BossArmorModifier"] .. Ns.SunArmLink ..
+                                Ns.ExpArmLink .. Ns.FaeFireLink .. Ns.CursWeaLink
 
 L["MeleeMiss"] = "Miss"
 L["MeleeMissAbrev"] = "Miss"
 L["MeleeMissMenu"] = "Miss Chance"
 L["MeleeMissTip"] = ""
-L["MeleeMissDescription"] = L["SinLive"] .. "The scaling below only applies to Boss Level sub-option" .. L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPC1to5"]
+L["MeleeMissDescription"] = L["SinLive"] .. "The scaling below only applies to Boss Level sub-option" ..
+                                L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPC1to5"]
 
 L["Avoidance"] = "Avoidance"
 L["AvoidanceAbrev"] = "Avoid"
 L["AvoidanceMenu"] = "Avoidance"
 L["AvoidanceTip"] = ""
-L["AvoidanceDescription"] = L["SinLive"] .. Ns.Colors.Green .. "Avoidance|r in green indicates that you have reached Avoidance cap" .. L["DefaultValueText"] .. L["NPCSameLevel"] .. L["ScalingText"] .. L["NPC1to5"] .. Ns.ScorStingLink .. Ns.InsSwarmLink
+L["AvoidanceDescription"] = L["SinLive"] .. Ns.Colors.Green ..
+                                "Avoidance|r in green indicates that you have reached Avoidance cap" ..
+                                L["DefaultValueText"] .. L["NPCSameLevel"] .. L["ScalingText"] .. L["NPC1to5"] ..
+                                Ns.ScorStingLink .. Ns.InsSwarmLink
 
 L["Crushing"] = "Crushing"
 L["CrushingAbrev"] = "Crush"
 L["CrushingMenu"] = "Crushing"
 L["CrushingTip"] = ""
-L["CrushingDescription"] = L["SinLive"] .. Ns.Colors.Green .. "Crushing|r in green indicates that you are uncrushable" .. L["DefaultValueText"] .. L["NPCPlus4"] .. L["ScalingText"] .. L["NPCAnyLevel"]
+L["CrushingDescription"] =
+    L["SinLive"] .. Ns.Colors.Green .. "Crushing|r in green indicates that you are uncrushable" .. L["DefaultValueText"] ..
+        L["NPCPlus4"] .. L["ScalingText"] .. L["NPCAnyLevel"]
 
 L["CritReceived"] = "Crit-"
 L["CritReceivedAbrev"] = "Crit-"
 L["CritReceivedMenu"] = "Crit Immunity"
 L["CritReceivedTip"] = ""
-L["CritReceivedDescription"] = L["SinLive"] .. Ns.Colors.Green .. "Crtical Immunity|r in green indicates that you have reached Crit immunity \n" .. Ns.Colors.Red .. "Crtical Immunity|r in red indicates that you are under the critical hit cap" .. L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPCAnyLevel"] .. L["SurvivalofFittest"]
+L["CritReceivedDescription"] = L["SinLive"] .. Ns.Colors.Green ..
+                                   "Crtical Immunity|r in green indicates that you have reached Crit immunity \n" ..
+                                   Ns.Colors.Red ..
+                                   "Crtical Immunity|r in red indicates that you are under the critical hit cap" ..
+                                   L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPCAnyLevel"] ..
+                                   L["SurvivalofFittest"]
 
 L["EHP"] = "EHP"
 L["EHPAbrev"] = "EHP"
 L["EHPMenu"] = "EHP"
 L["EHPTip"] = ""
-L["EHPDescription"] = L["SinLive"] .. "Effective HP (Total unmitigated Damage)"  .. L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPCAnyLevel"]
+L["EHPDescription"] = L["SinLive"] .. "Effective HP (Total unmitigated Damage)" .. L["DefaultValueText"] ..
+                          L["NPCPlus3"] .. L["ScalingText"] .. L["NPCAnyLevel"]
 
 L["MobMiss"] = "Miss+"
 L["MobMissAbrev"] = "Miss+"
@@ -178,25 +257,31 @@ L["Armor"] = "Armor"
 L["ArmorAbrev"] = "Arm"
 L["ArmorMenu"] = "Armor"
 L["ArmorTip"] = ""
-L["ArmorDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red .. "Armor|r in red indicates that you are affected by a debuff \n" ..  Ns.Colors.Green ..  "Armor|r in green indicates that you have reached the Armor cap"
+L["ArmorDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red ..
+                            "Armor|r in red indicates that you are affected by a debuff \n" .. Ns.Colors.Green ..
+                            "Armor|r in green indicates that you have reached the Armor cap"
 
 L["Mitigation"] = "Mitigation"
 L["MitigationAbrev"] = "Mit"
 L["MitigationMenu"] = "Mitigation"
 L["MitigationTip"] = ""
-L["MitigationDescription"] = L["SinLive"] .. "Percentage of damage reduction \n" .. Ns.Colors.Green .. "Mitigation|r in green indicates that you have reached the Mitigation cap" .. L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPCAnyLevel"]
+L["MitigationDescription"] = L["SinLive"] .. "Percentage of damage reduction \n" .. Ns.Colors.Green ..
+                                 "Mitigation|r in green indicates that you have reached the Mitigation cap" ..
+                                 L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPCAnyLevel"]
 
 L["DefenseStat"] = "Defense"
 L["DefenseStatAbrev"] = "Def"
 L["DefenseStatMenu"] = "Defense"
 L["DefenseStatTip"] = ""
-L["DefenseStatDescription"] = L["TipsAndInfo"] .. Ns.Colors.Green .. "Defense|r in green indicates that you have reached the Defense cap against a raid boss"
+L["DefenseStatDescription"] = L["TipsAndInfo"] .. Ns.Colors.Green ..
+                                  "Defense|r in green indicates that you have reached the Defense cap against a raid boss"
 
 L["HitReduction"] = "Hit-"
 L["HitReductionAbrev"] = "Hit-"
 L["HitReductionMenu"] = "Hit Reduction"
 L["HitReductionTip"] = ""
-L["HitReductionDescription"] = L["SinLive"] .. "Reduction to be hit by physical attacks \n" .. L["ScalingText"] .. Ns.ScorStingLink .. Ns.InsSwarmLink
+L["HitReductionDescription"] = L["SinLive"] .. "Reduction to be hit by physical attacks \n" .. L["ScalingText"] ..
+                                   Ns.ScorStingLink .. Ns.InsSwarmLink
 
 L["Dodge"] = "Dodge"
 L["DodgeAbrev"] = "Dod"
@@ -220,37 +305,50 @@ L["RAP"] = "Ranged AP"
 L["RAPAbrev"] = "rAP"
 L["RAPMenu"] = "Attack Power"
 L["RAPTip"] = ""
-L["RAPDescription"] = L["SinLive"] .. "Ranged Attack Power \n"  .. Ns.Colors.Red .. "Attack Power|r in red indicates that you are affected by a debuff \n" .. Ns.Colors.Green .. "Attack Power|r in green indicates that  " .. Ns.HuntMarkLink .. "is applied on your target\n" .. L["ScalingText"] .. Ns.HuntMarkLink .. Ns.GlyphMarkLink .. L["ImprovedHuntersMark"]
+L["RAPDescription"] = (L["SinLive"] or "") .. "Ranged Attack Power \n" .. (Ns.Colors.Red or "") ..
+                          "Attack Power|r in red indicates that you are affected by a debuff \n" ..
+                          (Ns.Colors.Green or "") .. "Attack Power|r in green indicates that " ..
+                          (Ns.HuntMarkLink or "") .. " is applied on your target\n" .. (L["ScalingText"] or "") ..
+                          (Ns.HuntMarkLink or "") .. (Ns.GlyphMarkLink or "") .. (L["ImprovedHuntersMark"] or "")
 
 L["RDMG"] = "Ranged DMG"
 L["RDMGAbrev"] = "rDMG"
 L["RDMGMenu"] = "Damage"
 L["RDMGTip"] = ""
-L["RDMGDescription"] = L["SinLive"] .. Ns.Colors.Red .. "Damage|r in red indicates that you are affected by a debuff \n" .. L["ScalingText"] .. L["BloodFrenzy"] .. Ns.HemoLink .."  " .. L["SavageCombat"] .. Ns.BeaSlayLink
+L["RDMGDescription"] =
+    L["SinLive"] .. Ns.Colors.Red .. "Damage|r in red indicates that you are affected by a debuff \n" ..
+        L["ScalingText"] .. L["BloodFrenzy"] .. Ns.HemoLink .. "  " .. L["SavageCombat"] .. Ns.BeaSlayLink
 
 L["rDPS"] = "Ranged DPS"
 L["rDPSAbrev"] = "rDPS"
 L["rDPSMenu"] = "DPS"
 L["rDPSTip"] = ""
-L["rDPSDescription"] = L["TipsAndInfo"] .. "Damage per second displayed in max, average of both \n" .. Ns.Colors.Red .. "DPS|r in red indicates that you are affected by a debuff\n\n" .. "This stat scales with Attack Speed and Damage stats"
+L["rDPSDescription"] = L["TipsAndInfo"] .. "Damage per second displayed in max, average of both \n" .. Ns.Colors.Red ..
+                           "DPS|r in red indicates that you are affected by a debuff\n\n" ..
+                           "This stat scales with Attack Speed and Damage stats"
 
 L["RangedCrit"] = "Ranged Crit"
 L["RangedCritAbrev"] = "rCrit"
 L["RangedCritMenu"] = "Critical"
 L["RangedCritTip"] = ""
-L["RangedCritDescription"] = L["SinLive"] .. "Critical Strike value. Also represents your Critical Strike in PvP \n" .. L["ScalingText"] .. Ns.HearCrusLink .. Ns.TotWrathLink
+L["RangedCritDescription"] = L["SinLive"] .. "Critical Strike value. Also represents your Critical Strike in PvP \n" ..
+                                 L["ScalingText"] .. Ns.HearCrusLink .. Ns.TotWrathLink
 
 L["RangedCritBoss"] = "Ranged Crit+"
 L["RangedCritBossAbrev"] = "rCrit+"
 L["RangedCritBossMenu"] = "Critical vs Boss"
 L["RangedCritBossTip"] = ""
-L["RangedCritBossDescription"] = L["SinLive"] .. "Critical Strike value in PvE, against higher level NPCs. Includes all Crit Suppressions auras" .. L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPC1to5"] .. Ns.HearCrusLink .. Ns.TotWrathLink
+L["RangedCritBossDescription"] = L["SinLive"] ..
+                                     "Critical Strike value in PvE, against higher level NPCs. Includes all Crit Suppressions auras" ..
+                                     L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPC1to5"] ..
+                                     Ns.HearCrusLink .. Ns.TotWrathLink
 
 L["RangedHit"] = "Ranged Hit"
 L["RangedHitAbrev"] = "Hit"
 L["RangedHitMenu"] = "Hit"
 L["RangedHitTip"] = ""
-L["RangedHitDescription"] = L["TipsAndInfo"] .. "Hit Chance displayed in percentage, rating or both \n" .. Ns.Colors.Green .. "Hit|r in green indicates that you have reached your Hit cap"
+L["RangedHitDescription"] = L["TipsAndInfo"] .. "Hit Chance displayed in percentage, rating or both \n" ..
+                                Ns.Colors.Green .. "Hit|r in green indicates that you have reached your Hit cap"
 
 L["HasteRanged"] = "Ranged Haste"
 L["HasteRangedAbrev"] = "rHas"
@@ -274,37 +372,48 @@ L["RangedMiss"] = "Ranged Miss"
 L["RangedMissAbrev"] = "rMiss"
 L["RangedMissMenu"] = "Miss Chance"
 L["RangedMissTip"] = ""
-L["RangedMissDescription"] = L["SinLive"] .. "Miss chance with ranged weapons against NPCs of your level, boss levels or both" .. L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPC1to5"]
+L["RangedMissDescription"] = L["SinLive"] ..
+                                 "Miss chance with ranged weapons against NPCs of your level, boss levels or both" ..
+                                 L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPC1to5"]
 
 L["Fire"] = "Fire"
 L["FireAbrev"] = "Fire"
 L["FireMenu"] = "Fire Power"
 L["FireTip"] = ""
-L["FireDescription"] = L["SinLive"] .. "Fire spell damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] .. Ns.MiseryLink .. Ns.CursEleLink .. L["FireVulnerability"] .. L["MoltenFury"] .. Ns.EbPlagLink .. "\n" .. Ns.EarMoonLink ..  Ns.BeaSlayLink
+L["FireDescription"] = L["SinLive"] .. "Fire spell damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] ..
+                           Ns.MiseryLink .. Ns.CursEleLink .. L["FireVulnerability"] .. L["MoltenFury"] .. Ns.EbPlagLink ..
+                           "\n" .. Ns.EarMoonLink .. Ns.BeaSlayLink
 
 L["Frost"] = "Frost"
 L["FrostAbrev"] = "Fro"
 L["FrostMenu"] = "Frost Power"
 L["FrostTip"] = ""
-L["FrostDescription"] = L["SinLive"] .. "Frost spell damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] .. Ns.MiseryLink .. Ns.CursEleLink .. L["MoltenFury"] .. Ns.EbPlagLink .. Ns.EarMoonLink .. "\n" ..  Ns.BeaSlayLink
+L["FrostDescription"] = L["SinLive"] .. "Frost spell damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] ..
+                            Ns.MiseryLink .. Ns.CursEleLink .. L["MoltenFury"] .. Ns.EbPlagLink .. Ns.EarMoonLink ..
+                            "\n" .. Ns.BeaSlayLink
 
 L["Arcane"] = "Arcane"
 L["ArcaneAbrev"] = "Arc"
 L["ArcaneMenu"] = "Arcane Power"
 L["ArcaneTip"] = ""
-L["ArcaneDescription"] = L["SinLive"] .. "Arcane spell damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] .. Ns.MiseryLink .. Ns.CursEleLink .. L["MoltenFury"] .. Ns.EbPlagLink .. Ns.EarMoonLink .. "\n" ..  Ns.BeaSlayLink
+L["ArcaneDescription"] = L["SinLive"] .. "Arcane spell damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] ..
+                             Ns.MiseryLink .. Ns.CursEleLink .. L["MoltenFury"] .. Ns.EbPlagLink .. Ns.EarMoonLink ..
+                             "\n" .. Ns.BeaSlayLink
 
 L["Shadow"] = "Shadow"
 L["ShadowAbrev"] = "Sha"
 L["ShadowMenu"] = "Shadow Power"
 L["ShadowTip"] = ""
-L["ShadowDescription"] = L["SinLive"] .. "Shadow spell damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] .. Ns.ShadWeaveLink .. Ns.MiseryLink .. Ns.ShaVulLink .. Ns.CursEleLink .. Ns.EbPlagLink .. "\n" ..  Ns.EarMoonLink .. Ns.BeaSlayLink
+L["ShadowDescription"] = L["SinLive"] .. "Shadow spell damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] ..
+                             Ns.ShadWeaveLink .. Ns.MiseryLink .. Ns.ShaVulLink .. Ns.CursEleLink .. Ns.EbPlagLink ..
+                             "\n" .. Ns.EarMoonLink .. Ns.BeaSlayLink
 
 L["Nature"] = "Nature"
 L["NatureAbrev"] = "Nat"
 L["NatureMenu"] = "Nature Power"
 L["NatureTip"] = ""
-L["NatureDescription"] = L["SinLive"] .. "Nature spell damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] .. Ns.MiseryLink .. Ns.StoStriLink .. Ns.EbPlagLink .. Ns.EarMoonLink .. Ns.BeaSlayLink
+L["NatureDescription"] = L["SinLive"] .. "Nature spell damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] ..
+                             Ns.MiseryLink .. Ns.StoStriLink .. Ns.EbPlagLink .. Ns.EarMoonLink .. Ns.BeaSlayLink
 
 L["Healing"] = "Healing"
 L["HealingAbrev"] = "Heal"
@@ -316,25 +425,36 @@ L["Holy"] = "Holy"
 L["HolyAbrev"] = "Holy"
 L["HolyMenu"] = "Holy Power"
 L["HolyTip"] = ""
-L["HolyDescription"] = L["SinLive"] .. "Holy damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] .. Ns.MiseryLink .. L["Crusade"] .. Ns.CursEleLink .. Ns.EbPlagLink .. Ns.EarMoonLink .. "\n" ..  Ns.BeaSlayLink
+L["HolyDescription"] =
+    L["SinLive"] .. "Holy damage \n" .. L["ScalingText"] .. L["SpellPowerModifiers"] .. Ns.MiseryLink .. L["Crusade"] ..
+        Ns.CursEleLink .. Ns.EbPlagLink .. Ns.EarMoonLink .. "\n" .. Ns.BeaSlayLink
 
 L["SpellCrit"] = "Spell Crit"
 L["SpellCritAbrev"] = "sCrit"
 L["SpellCritMenu"] = "Critical"
 L["SpellCritTip"] = ""
-L["SpellCritDescription"] = L["SinLive"] .. "Critical in percentage, rating or both. Also represents your Critical in PvP\nSpell-specific talents are colored and will appear next to the current value\n" .. L["ScalingText"] .. Ns.HearCrusLink .. Ns.WinChillLink .. Ns.ImpScorLink .. Ns.TotWrathLink .. L["ImprovedFaerieFire"] .. "\n" ..  Ns.ShaMasLink
+L["SpellCritDescription"] = L["SinLive"] ..
+                                "Critical in percentage, rating or both. Also represents your Critical in PvP\nSpell-specific talents are colored and will appear next to the current value\n" ..
+                                L["ScalingText"] .. Ns.HearCrusLink .. Ns.WinChillLink .. Ns.ImpScorLink ..
+                                Ns.TotWrathLink .. L["ImprovedFaerieFire"] .. "\n" .. Ns.ShaMasLink
 
 L["SpellCritBoss"] = "Spell Crit+"
 L["SpellCritBossAbrev"] = "sCrit+"
 L["SpellCritBossMenu"] = "Critical vs Boss"
 L["SpellCritBossTip"] = ""
-L["SpellCritBossDescription"] = L["SinLive"] .. "Critical in PvE against higher level NPCs (see level below). Includes all crit suppressions auras" .. L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPCAnyLevel"] .. Ns.HearCrusLink .. Ns.WinChillLink .. Ns.ImpScorLink .. Ns.TotWrathLink .. L["ImprovedFaerieFire"] .. "\n" ..  Ns.ShaMasLink
+L["SpellCritBossDescription"] = L["SinLive"] ..
+                                    "Critical in PvE against higher level NPCs (see level below). Includes all crit suppressions auras" ..
+                                    L["DefaultValueText"] .. L["NPCPlus3"] .. L["ScalingText"] .. L["NPCAnyLevel"] ..
+                                    Ns.HearCrusLink .. Ns.WinChillLink .. Ns.ImpScorLink .. Ns.TotWrathLink ..
+                                    L["ImprovedFaerieFire"] .. "\n" .. Ns.ShaMasLink
 
 L["SpellHit"] = "Spell Hit"
 L["SpellHitAbrev"] = "spHit"
 L["SpellHitMenu"] = "Hit"
 L["SpellHitTip"] = ""
-L["SpellHitDescription"] = L["SinLive"] .. "Hit chance displayed in percentage, rating or both \n" .. Ns.Colors.Green .. "Hit|r in green indicates that you have reached your spell Hit cap \n" .. L["ScalingText"] .. L["ImprovedFaerieFire"]
+L["SpellHitDescription"] = L["SinLive"] .. "Hit chance displayed in percentage, rating or both \n" .. Ns.Colors.Green ..
+                               "Hit|r in green indicates that you have reached your spell Hit cap \n" ..
+                               L["ScalingText"] .. L["ImprovedFaerieFire"]
 
 L["HasteCaster"] = "Spell Haste"
 L["HasteCasterAbrev"] = "sHas"
@@ -346,13 +466,16 @@ L["SpellPenetration"] = "Spell Pen"
 L["SpellPenetrationAbrev"] = "sPen"
 L["SpellPenetrationMenu"] = "Penetration"
 L["SpellPenetrationTip"] = ""
-L["SpellPenetrationDescription"] = L["TipsAndInfo"] .. "Percentage of your target's spell resistance ignored by your spells"
+L["SpellPenetrationDescription"] = L["TipsAndInfo"] ..
+                                       "Percentage of your target's spell resistance ignored by your spells"
 
 L["SpellMiss"] = "Spell Miss"
 L["SpellMissAbrev"] = "sMis"
 L["SpellMissMenu"] = "Miss Chance"
 L["SpellMissTip"] = ""
-L["SpellMissDescription"] = L["SinLive"] .. "Miss chance with spells against NPCs of your level, boss levels or both \n" .. L["ScalingText"] .. L["ImprovedFaerieFire"]
+L["SpellMissDescription"] =
+    L["SinLive"] .. "Miss chance with spells against NPCs of your level, boss levels or both \n" .. L["ScalingText"] ..
+        L["ImprovedFaerieFire"]
 
 L["ManaRegen"] = "MP2"
 L["ManaRegenAbrev"] = "MP2"
@@ -478,13 +601,17 @@ L["Speed"] = "Speed"
 L["SpeedAbrev"] = "Spe"
 L["SpeedMenu"] = "Speed"
 L["SpeedTip"] = ""
-L["SpeedDescription"] = L["TipsAndInfo"] .. "Your character's movement speed in real-time, static or both \n" .. Ns.Colors.Red .. "Speed|r in red indicates that you are affected by slowing effects or moving at a slower speed than normal"
+L["SpeedDescription"] = L["TipsAndInfo"] .. "Your character's movement speed in real-time, static or both \n" ..
+                            Ns.Colors.Red ..
+                            "Speed|r in red indicates that you are affected by slowing effects or moving at a slower speed than normal"
 
 L["TargetSpeed"] = "Target Speed"
 L["TargetSpeedAbrev"] = "Spe+"
 L["TargetSpeedMenu"] = "Target Speed"
 L["TargetSpeedTip"] = ""
-L["TargetSpeedDescription"] = L["SinLive"] .. "Your target's movement speed, in real-time \n" .. Ns.Colors.Red .. "Speed|r in red indicates that your target is affected by slowing effects or moving at a slower speed than normal \n" .. L["ScalingText"] .. "Targeted player or NPC"
+L["TargetSpeedDescription"] = L["SinLive"] .. "Your target's movement speed, in real-time \n" .. Ns.Colors.Red ..
+                                  "Speed|r in red indicates that your target is affected by slowing effects or moving at a slower speed than normal \n" ..
+                                  L["ScalingText"] .. "Targeted player or NPC"
 
 L["Durability"] = "Durability"
 L["DurabilityAbrev"] = "Dur"
@@ -508,7 +635,9 @@ L["DebuffCounter"] = "Debuffs"
 L["DebuffCounterAbrev"] = "Deb"
 L["DebuffCounterMenu"] = "Target Debuffs"
 L["DebuffCounterTip"] = ""
-L["DebuffCounterDescription"] = L["SinLive"] .. "Total number of non-beneficial auras (debuffs) applied to your current target \n" .. L["ScalingText"] .. "Targeted player or NPC"
+L["DebuffCounterDescription"] = L["SinLive"] ..
+                                    "Total number of non-beneficial auras (debuffs) applied to your current target \n" ..
+                                    L["ScalingText"] .. "Targeted player or NPC"
 
 L["Lag"] = "Ping"
 L["LagAbrev"] = "Ping"
@@ -538,13 +667,15 @@ L["petAP"] = "Pet AP"
 L["petAPAbrev"] = "pAP"
 L["petAPMenu"] = "Attack Power"
 L["petAPTip"] = ""
-L["petAPDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red .. "Attack Power|r in red indicates that your pet is affected by a debuff \n"
+L["petAPDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red ..
+                            "Attack Power|r in red indicates that your pet is affected by a debuff \n"
 
 L["petDMG"] = "Pet DMG"
 L["petDMGAbrev"] = "pDMG"
 L["petDMGMenu"] = "Damage"
 L["petDMGTip"] = ""
-L["petDMGDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red .. "Damage|r in red indicates that your pet is affected by a debuff \n"
+L["petDMGDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red ..
+                             "Damage|r in red indicates that your pet is affected by a debuff \n"
 
 L["petSpell"] = "Pet Spell"
 L["petSpellAbrev"] = "pSP"
@@ -574,7 +705,8 @@ L["petArmor"] = "Pet Armor"
 L["petArmorAbrev"] = "pARM"
 L["petArmorMenu"] = "Armor"
 L["petArmorTip"] = ""
-L["petArmorDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red .. "Armor|r in red indicates that your pet is affected by a debuff \n"
+L["petArmorDescription"] = L["TipsAndInfo"] .. Ns.Colors.Red ..
+                               "Armor|r in red indicates that your pet is affected by a debuff \n"
 
 L["petMood"] = "Status"
 L["petMoodAbrev"] = "Stat"
@@ -612,7 +744,6 @@ L["SpiritMenu"] = "Spirit"
 L["SpiritTip"] = ""
 L["SpiritDescription"] = ""
 
-
 -- Settings --
 
 -- Categories
@@ -644,23 +775,23 @@ L["CurrencyDescription"] = ""
 -- HUD
 L["SettingsDescription"] = ""
 L["HideHUD"] = "Hide"
-L["HideHUDTip"] = Ns.HideIcon.. "Hide stats HUD"
+L["HideHUDTip"] = Ns.HideIcon .. "Hide stats HUD"
 L["LockHUD"] = "Lock"
 L["LockHUDTip"] = Ns.LockIcon .. "Lock stats HUD"
 L["PanelDisplay"] = "Attach"
-L["PanelDisplayTip"] = Ns.AttachIcon.. "Character Panel"
+L["PanelDisplayTip"] = Ns.AttachIcon .. "Character Panel"
 L["HUDBgColor"] = ""
 L["HUDBgColorTip"] = Ns.BackgroundIcon .. "Background Color"
 L["HUDBgAlpha"] = ""
 L["HUDBgAlphaTip"] = Ns.BackgroundIcon .. "Background Alpha"
 L["ResetPosition"] = "Reset HUD Position"
 L["ResetPositionTip"] = "Reset the stats HUD's position"
-L["HUDStrataTip"] = Ns.StrataIcon.. "Frame Strata"
+L["HUDStrataTip"] = Ns.StrataIcon .. "Frame Strata (Layer Level)"
 L["MinimapGroupText"] = "Minimap"
 L["Minimap"] = "Show"
 L["MinimapTip"] = Ns.MiniMenuIcon .. "Minimap Button"
 L["CompButton"] = "Show"
-L["CompButtonTip"] = Ns.CompIcon .. "Compartment Button (Retail)"
+L["CompButtonTip"] = Ns.CompIcon .. "Compartment Button (Retail only)"
 L["Lowest"] = "Lowest"
 L["Low"] = "Low"
 L["Medium"] = "Medium"
@@ -692,7 +823,8 @@ L["ClassColorsTip"] = Ns.TextColorIcon .. "Text color: Name"
 L["ClassColors"] = "Class Color"
 L["AlignmentText"] = "Alignment and Spacing"
 L["StatWidthTip"] = Ns.WidthStringIcon .. "Text: Width"
-L["StatWidthTooltip"] = Ns.Colors.Green .. "Text string width|r\n" .. "Adjust the text string width to fit your stats \nIncrease the width to create more space if \na text is truncated (...) \n\nThis option is disabled when displaying your \nstats on 1 row or on 1 column"
+L["StatWidthTooltip"] = Ns.Colors.Green .. "Text string width|r\n" ..
+                            "Adjust the text string width to fit your stats \nIncrease the width to create more space if \na text is truncated (...) \n\nThis option is disabled when displaying your \nstats on 1 row or on 1 column"
 L["StatSpacingHTip"] = Ns.WidthIcon .. "Spacing: Width"
 L["StatSpacingVTip"] = Ns.HeightIcon .. "Spacing: Height"
 L["StatAlignmentTip"] = Ns.AlignIcon .. "Alignment: Text"
@@ -701,7 +833,9 @@ L["DataColor"] = ""
 L["DataColorTip"] = Ns.ValueColorIcon .. "Text color: Value"
 L["SplitColors"] = "Enable"
 L["SplitColorsTip"] = Ns.ValueColorIcon .. "Text color: Value"
-L["SplitColorsTooltip"] = Ns.Colors.Green .. "Value text color|r\n" .. "Enabling this option will allow stat \nvalues to be set in a different color \nfrom the stat name \n\nUse the" .. Ns.Colors.Green .. " Text color (Value)|r color \npicker to set a color"
+L["SplitColorsTooltip"] = Ns.Colors.Green .. "Value text color|r\n" ..
+                              "Enabling this option will allow stat \nvalues to be set in a different color \nfrom the stat name \n\nUse the" ..
+                              Ns.Colors.Green .. " Text color (Value)|r color \npicker to set a color"
 L["Left"] = "Left"
 L["Right"] = "Right"
 L["Center"] = "Center"
@@ -716,19 +850,38 @@ L["TwoRows"] = "2"
 L["ThreeRows"] = "3"
 L["FourRows"] = "4"
 L["DisplayOrderDescription"] = ""
-L["StatOrderSettingsTooltip"] = Ns.Colors.Green .. "Stats Order|r\n" .. "Customize the order in which the stats are displayed \nSimply drag and drop the stats below \n\n" .. Ns.Colors.Green .. "Columns|r\n" .. "Selecting a checkbox next to a stat will create a new \ncolumn with the selected stat and the stats below it. \n\124T" .. "Interface\\AddOns\\"..AddName.."\\Textures\\" .."CheckColumn:0:0:0:0:16:16:0:16:0:16:112:255:201\124t marks the start of a new column \n\n" .. Ns.Colors.Green .. "Row and Column Presets|r\n" .. "Select a preset layout composed of up to 4 rows or \ncolumns. This option helps to quickly create a layout. \nRows and Columns can also be created manually \n\nPress Apply when done"
+L["StatOrderSettingsTooltip"] = Ns.Colors.Green .. "Stats Order|r\n" ..
+                                    "Customize the order in which the stats are displayed \nSimply drag and drop the stats below \n\n" ..
+                                    Ns.Colors.Green .. "Columns|r\n" ..
+                                    "Selecting a checkbox next to a stat will create a new \ncolumn with the selected stat and the stats below it. \n\124T" ..
+                                    "Interface\\AddOns\\" .. AddName .. "\\Textures\\" ..
+                                    "CheckColumn:0:0:0:0:16:16:0:16:0:16:112:255:201\124t marks the start of a new column \n\n" ..
+                                    Ns.Colors.Green .. "Row and Column Presets|r\n" ..
+                                    "Select a preset layout composed of up to 4 rows or \ncolumns. This option helps to quickly create a layout. \nRows and Columns can also be created manually \n\nPress Apply when done"
 
 -- FAQ
-L["FAQFirst"] = Ns.MiscIcon .. Ns.Colors.Green .. "Some of the stats' text is truncated (...)|r\n\n " .. Ns.SettingsIcon .. "Settings >> " .. Ns.DisplayIcon .. "Display >> " .. Ns.SpacingIcon .. "Spacing & Alignment: Adjust the " .. Ns.Colors.Green .. "Text string width|r slider"
-L["FAQSecond"] = Ns.MiscIcon .. Ns.Colors.Green .. "How to display the stats in columns or rows|r\n\n " .. Ns.SettingsIcon .. "Settings >> " .. Ns.LayoutIcon .. "Layout: Mouse-over its " .. Ns.MiscIcon .. "icon for more details"
-L["FAQThird"] = Ns.MiscIcon .. Ns.Colors.Green .. "How to display the stats on one single row|r\n\n " .. Ns.SettingsIcon .. "Settings >> " .. Ns.LayoutIcon .. "Layout: Click the 1 button in " .. Ns.Colors.Green .. "Row Presets|r or manually by activating all the " .. Ns.ColumnIcon .. "checkboxes next to each stats"
-L["FAQForth"] = Ns.MiscIcon .. Ns.Colors.Green .. "How to re-order the stats|r\n\n " .. Ns.SettingsIcon .. "Settings >> " .. Ns.LayoutIcon .. "Layout: Drag and drop the stats on the list"
-L["FAQFifth"] = Ns.MiscIcon .. Ns.Colors.Green .. "How to enable stats in-combat only or in other specific situations|r\n\n " .. Ns.SettingsIcon .. "Settings >> " .. Ns.EventsIcon .. "Events: Make the stats only visible in the selected events"
+L["FAQFirst"] =
+    Ns.MiscIcon .. Ns.Colors.Green .. "Some of the stats' text is truncated (...)|r\n\n " .. Ns.SettingsIcon ..
+        "Settings >> " .. Ns.DisplayIcon .. "Display >> " .. Ns.SpacingIcon .. "Spacing & Alignment: Adjust the " ..
+        Ns.Colors.Green .. "Text string width|r slider"
+L["FAQSecond"] = Ns.MiscIcon .. Ns.Colors.Green .. "How to display the stats in columns or rows|r\n\n " ..
+                     Ns.SettingsIcon .. "Settings >> " .. Ns.LayoutIcon .. "Layout: Mouse-over its " .. Ns.MiscIcon ..
+                     "icon for more details"
+L["FAQThird"] =
+    Ns.MiscIcon .. Ns.Colors.Green .. "How to display the stats on one single row|r\n\n " .. Ns.SettingsIcon ..
+        "Settings >> " .. Ns.LayoutIcon .. "Layout: Click the 1 button in " .. Ns.Colors.Green ..
+        "Row Presets|r or manually by activating all the " .. Ns.ColumnIcon .. "checkboxes next to each stats"
+L["FAQForth"] = Ns.MiscIcon .. Ns.Colors.Green .. "How to re-order the stats|r\n\n " .. Ns.SettingsIcon ..
+                    "Settings >> " .. Ns.LayoutIcon .. "Layout: Drag and drop the stats on the list"
+L["FAQFifth"] = Ns.MiscIcon .. Ns.Colors.Green ..
+                    "How to enable stats in-combat only or in other specific situations|r\n\n " .. Ns.SettingsIcon ..
+                    "Settings >> " .. Ns.EventsIcon .. "Events: Make the stats only visible in the selected events"
 
 -- Events
 L["EventEnable"] = "Enable"
 L["EventEnableTip"] = "HUD Events"
-L["EventEnableTooltip"] = Ns.Colors.Green .. "HUD Events|r\n" .. "Make your stats strictly visible in the \nevent(s) below. \nYour stats will be hidden otherwise \n\nCombat has a higher priority"
+L["EventEnableTooltip"] = Ns.Colors.Green .. "HUD Events|r\n" ..
+                              "Make your stats strictly visible in the \nevent(s) below. \nYour stats will be hidden otherwise \n\nCombat has a higher priority"
 L["EventWorld"] = "Open World"
 L["EventWorldTip"] = Ns.Colors.Green .. "Show stats only while in"
 L["EventDungeon"] = "Dungeons"
@@ -751,7 +904,8 @@ L["UnlockHUD"] = "Lock/Unlock HUD"
 
 -- Profile
 L["Selected"] = "Apply"
-L["SelectProfile"] = "Manage your profiles: Select, Create, Copy or Delete \nProfiles currently active on a character cannot be deleted"
+L["SelectProfile"] =
+    "Manage your profiles: Select, Create, Copy or Delete \nProfiles currently active on a character cannot be deleted"
 L["ProfileSelected"] = "Profiles"
 L["ProfileUsed"] = "Profile is currently in use, unable to delete!"
 L["NewProfile"] = "New Profile"
@@ -814,15 +968,18 @@ L["Display_Simulate"] = "Simulate"
 L["Display_SimulateTip"] = ""
 L["Display_Expertise"] = "Expertise"
 L["Display_ExpertiseTip"] = ""
-L["Display_ExpertiseTooltip"] = Ns.Colors.Green .. "Expertise|r\n" .. "Displays the Expertise value \ninstead of Percentage"
+L["Display_ExpertiseTooltip"] = Ns.Colors.Green .. "Expertise|r\n" ..
+                                    "Displays the Expertise value \ninstead of Percentage"
 L["Score_Color"] = "Score Color"
 L["Score_ColorTip"] = ""
 L["Add_Speed"] = "Casting Speed"
 L["Add_SpeedTip"] = ""
-L["Add_SpeedTooltip"] = Ns.Colors.Green .. "Casting Speed|r\n" .. "Adds spells and talents that only \nincrease your casting speed"
+L["Add_SpeedTooltip"] = Ns.Colors.Green .. "Casting Speed|r\n" ..
+                            "Adds spells and talents that only \nincrease your casting speed"
 L["Add_AtkSpeed"] = "Attacking Speed"
 L["Add_AtkSpeedTip"] = ""
-L["Add_AtkSpeedTooltip"] = Ns.Colors.Green .. "Attacking Speed|r\n" .. "Adds abilities and talents that \nonly increase your attack speed"
+L["Add_AtkSpeedTooltip"] = Ns.Colors.Green .. "Attacking Speed|r\n" ..
+                               "Adds abilities and talents that \nonly increase your attack speed"
 L["Add_Block"] = "Disable Block"
 L["Add_BlockTip"] = ""
 L["Display_Short"] = "Short Number"
@@ -884,39 +1041,67 @@ L["Dec_Spell_SpirTip"] = "Rounding decimals"
 
 -- Caps
 L["Cap_Melee_Crit"] = "Crit cap"
-L["Cap_Melee_CritTooltip"] = Ns.Colors.Green .. "Crit Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
+L["Cap_Melee_CritTooltip"] = Ns.Colors.Green .. "Crit Cap|r\n" ..
+                                 "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
 L["Cap_Melee_CritBoss"] = "Boss Crit cap"
-L["Cap_Melee_CritBossTooltip"] = Ns.Colors.Green .. "Boss Crit Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
+L["Cap_Melee_CritBossTooltip"] = Ns.Colors.Green .. "Boss Crit Cap|r\n" ..
+                                     "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
 L["Cap_Melee_Hit"] = "Hit cap"
-L["Cap_Melee_HitTooltip"] = Ns.Colors.Green .. "Hit Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "8%"
+L["Cap_Melee_HitTooltip"] = Ns.Colors.Green .. "Hit Cap|r\n" ..
+                                "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                                Ns.Colors.Green .. "8%"
 L["Cap_Melee_Haste"] = "Haste cap"
-L["Cap_Melee_HasteTooltip"] = Ns.Colors.Green .. "Haste Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
+L["Cap_Melee_HasteTooltip"] = Ns.Colors.Green .. "Haste Cap|r\n" ..
+                                  "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
 L["Cap_Melee_Exp"] = "Expertise cap"
-L["Cap_Melee_ExpTooltip"] = Ns.Colors.Green .. "Expertise Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "6.5%"
+L["Cap_Melee_ExpTooltip"] = Ns.Colors.Green .. "Expertise Cap|r\n" ..
+                                "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                                Ns.Colors.Green .. "6.5%"
 
 L["Cap_Def_Def"] = "Defense cap"
-L["Cap_Def_DefTooltip"] = Ns.Colors.Green .. "Defense Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "540"
+L["Cap_Def_DefTooltip"] = Ns.Colors.Green .. "Defense Cap|r\n" ..
+                              "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                              Ns.Colors.Green .. "540"
 L["Cap_Def_Armor"] = "Armor cap"
-L["Cap_Def_ArmorTooltip"] = Ns.Colors.Green .. "Armor Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "49905"
+L["Cap_Def_ArmorTooltip"] = Ns.Colors.Green .. "Armor Cap|r\n" ..
+                                "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                                Ns.Colors.Green .. "49905"
 L["Cap_Def_Mit"] = "Mitigation cap"
-L["Cap_Def_MitTooltip"] = Ns.Colors.Green .. "Mitigation Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "75%"
+L["Cap_Def_MitTooltip"] = Ns.Colors.Green .. "Mitigation Cap|r\n" ..
+                              "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                              Ns.Colors.Green .. "75%"
 L["Cap_Def_Avo"] = "Avoidance cap"
-L["Cap_Def_AvoTooltip"] = Ns.Colors.Green .. "Avoidance Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "102.4%"
+L["Cap_Def_AvoTooltip"] = Ns.Colors.Green .. "Avoidance Cap|r\n" ..
+                              "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                              Ns.Colors.Green .. "102.4%"
 
 L["Cap_Ranged_Haste"] = "Haste cap"
-L["Cap_Ranged_HasteTooltip"] = Ns.Colors.Green .. "Haste Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
+L["Cap_Ranged_HasteTooltip"] = Ns.Colors.Green .. "Haste Cap|r\n" ..
+                                   "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
 L["Cap_Ranged_Crit"] = "Crit cap"
-L["Cap_Ranged_CritTooltip"] = Ns.Colors.Green .. "Crit Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "104.8%"
+L["Cap_Ranged_CritTooltip"] = Ns.Colors.Green .. "Crit Cap|r\n" ..
+                                  "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                                  Ns.Colors.Green .. "104.8%"
 L["Cap_Ranged_CritBoss"] = "Crit cap"
-L["Cap_Ranged_CritBossTooltip"] = Ns.Colors.Green .. "Crit Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "104.8%"
+L["Cap_Ranged_CritBossTooltip"] = Ns.Colors.Green .. "Crit Cap|r\n" ..
+                                      "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                                      Ns.Colors.Green .. "104.8%"
 L["Cap_Ranged_Hit"] = "Hit cap"
-L["Cap_Ranged_HitTooltip"] = Ns.Colors.Green .. "Hit Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "8%"
+L["Cap_Ranged_HitTooltip"] = Ns.Colors.Green .. "Hit Cap|r\n" ..
+                                 "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                                 Ns.Colors.Green .. "8%"
 L["Cap_Ranged_ArP"] = "ArP cap"
-L["Cap_Ranged_ArPTooltip"] = Ns.Colors.Green .. "ArP Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "1440"
+L["Cap_Ranged_ArPTooltip"] = Ns.Colors.Green .. "ArP Cap|r\n" ..
+                                 "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                                 Ns.Colors.Green .. "1440"
 
 L["Cap_Spell_Crit"] = "Crit cap"
-L["Cap_Spell_CritTooltip"] = Ns.Colors.Green .. "Crit Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
+L["Cap_Spell_CritTooltip"] = Ns.Colors.Green .. "Crit Cap|r\n" ..
+                                 "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
 L["Cap_Spell_CritBoss"] = "Crit cap"
-L["Cap_Spell_CritBossTooltip"] = Ns.Colors.Green .. "Crit Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
+L["Cap_Spell_CritBossTooltip"] = Ns.Colors.Green .. "Crit Cap|r\n" ..
+                                     "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value"
 L["Cap_Spell_Hit"] = "Hit cap"
-L["Cap_Spell_HitTooltip"] = Ns.Colors.Green .. "Hit Cap|r\n" .. "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " .. Ns.Colors.Green .. "17%"
+L["Cap_Spell_HitTooltip"] = Ns.Colors.Green .. "Hit Cap|r\n" ..
+                                "Set the value of your stat's soft \nor hard cap. It can also be used \nto set a diminishing return cap \nor any other personal threshold \n\nYour stat will be colored green \nupon reaching the set value \n\nDefault cap: " ..
+                                Ns.Colors.Green .. "17%"

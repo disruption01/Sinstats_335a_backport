@@ -7,7 +7,7 @@ local L = Ns.L
 ------------------------------
 local Both, Enhanced, Base, Damage, DamageTaken, Melee, Ranged, World, Realm, Equipped, Overall, Level, Honor, Max, Live, Enchanted, Ingenuity = 3, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 2
 local Percentage, Rating, MainHand, OffHand, SameLevel, BossLevel, Regen, Casting, Critical, CritDamage, Average, Low, Static, Normal, Shadowflame = 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 3, 2, 1, 1
-local Season, Expansion, Spark, Splinter, Gigantic, Plump = 1, 2, 1, 2, 1, 2
+local Season, Expansion, Spark, Splinter = 1, 2, 1, 2
 
 Ns.ConfigWidth = 950
 Ns.ConfigHeight = 540
@@ -66,22 +66,21 @@ Ns.DefaultOrder = { -- grp = SpellClass, options order = display order, ["on"]/[
 	{ stat="GlobalCD", events={ UNIT_SPELLCAST_SUCCEEDED={ "player" }, }, spell=363929, spellclass="Misc", widget={ type="CheckBox" }, options={ Show=true, Decimals_Gcd=true }, subgroup=true },
 	{ stat="Durability", events={ UPDATE_INVENTORY_DURABILITY=true, }, spell=3100, spellclass="Misc", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
 	{ stat="Flightstones", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2245, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true, activeonload=true },
-	{ stat="AspectCrest", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2812, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Normal_Enchanted=true, Display_Max=true }, subgroup=true },
-	{ stat="WyrmCrest", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2809, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Normal_Enchanted=true, Display_Max=true, }, subgroup=true },
-	{ stat="DrakeCrest", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2807, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Display_Max=true, }, subgroup=true, },
-	{ stat="WhelplingCrest", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2806, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Normal_Enchanted=true, Display_Max=true, }, subgroup=true, },
-	{ stat="Renascent", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2912, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
+	{ stat="AspectCrest", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2709, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Normal_Enchanted=true, Display_Max=true }, subgroup=true },
+	{ stat="WyrmCrest", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2708, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Normal_Enchanted=true, Display_Max=true, }, subgroup=true },
+	{ stat="DrakeCrest", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2707, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Display_Max=true, }, subgroup=true, },
+	{ stat="WhelplingCrest", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2706, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Display_Max=true, }, subgroup=true, },
+	{ stat="Renascent", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2796, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
 	{ stat="SparkDreams", events={ UNIT_INVENTORY_CHANGED=true, }, item=206959, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Splint_Spark=true, }, subgroup=true },
-	{ stat="Bullion", events={ UNIT_INVENTORY_CHANGED=true, }, item=213089, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
-	{ stat="Bronze", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2778, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Decimals_Bronze=true, }, subgroup=true },
-	{ stat="Threads", onupdate=true, events={}, item=219282, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Decimals_Threads=true, }, subgroup=true },
 	{ stat="Mysterious", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2657, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
-	{ stat="GigaSeed", events={ UNIT_INVENTORY_CHANGED=true, }, item=208047, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Giga_Plump=true, }, subgroup=true },
+	{ stat="GigaSeed", events={ UNIT_INVENTORY_CHANGED=true, }, item=208047, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
+	{ stat="PlumpSeed", events={ UNIT_INVENTORY_CHANGED=true, }, item=208067, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
 	{ stat="SeedBloom", events={ UNIT_INVENTORY_CHANGED=true, }, item=211376, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
 	{ stat="DewDrop", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2650, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
 	{ stat="DreamWardens", onupdate=true, events={}, currency=2653, spellclass="Misc", widget={ type="CheckBox" }, options={ Show=true, Display_Percentage=true }, subgroup=true },
 	{ stat="LoammNiffen", onupdate=true, events={}, spell=409490, spellclass="Misc", widget={ type="CheckBox" }, options={ Show=true, Display_Percentage=true }, subgroup=true },
 	{ stat="Renown", events={ CURRENCY_DISPLAY_UPDATE=true, }, spell=364603, spellclass="Misc", widget={ type="CheckBox" }, options={ Show=true, Hide_Reputation=true }, subgroup=true },
+	{ stat="CraftingSpark", events={ UNIT_INVENTORY_CHANGED=true, }, item=204440, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, Shadow_Ing=true, }, subgroup=true },
 	{ stat="DreamSurge", events={ UNIT_INVENTORY_CHANGED=true, }, item=207026, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true }, subgroup=true },
 	{ stat="Flakes", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=2594, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
 	{ stat="ValorPoints", events={ CURRENCY_DISPLAY_UPDATE=true, }, currency=1191, spellclass="Currency", widget={ type="CheckBox" }, options={ Show=true, }, subgroup=true },
@@ -156,9 +155,7 @@ Ns.Options = {
 	{ stat="Shadow_Ing", spellclass="Shadow_Ing", widget={ type="Radio", }, tooltip=true, default=1, labels={ "Shadowflame", "Ingenuity", "Both"}, },
 	{ stat="Season_Exp", spellclass="Season_Exp", widget={ type="Radio", }, tooltip=true, default=1, labels={ "Season", "Expansion", "Both"}, },
 	{ stat="Splint_Spark", spellclass="Splint_Spark", widget={ type="Radio", }, tooltip=true, default=1, labels={ "Spark", "Splinter", "Both"}, },
-	{ stat="Giga_Plump", spellclass="Giga_Plump", widget={ type="Radio", }, tooltip=true, default=1, labels={ "Gigantic", "Plump", "Both"}, },
 	{ stat="Display_Max", spellclass="Display_Max", widget={ type="CheckBox", }, tooltip=true, default=true, labels={ "Display_Max"}, },
-	-- decimals
 	{ stat="Decimals_Crit", spellclass="Decimals_Crit", default=2, widget={ type="Slider", min=0, max=3, valuestep=1, width=140, } , newline=true, },
 	{ stat="Decimals_Haste", spellclass="Decimals_Haste", default=2, widget={ type="Slider", min=0, max=3, valuestep=1, width=140, } , newline=true, },
 	{ stat="Decimals_Mastery", spellclass="Decimals_Mastery", default=2, widget={ type="Slider", min=0, max=3, valuestep=1, width=140, } , newline=true, },
@@ -180,9 +177,7 @@ Ns.Options = {
 	{ stat="Decimals_WepSpeed", spellclass="Decimals_WepSpeed", default=2, widget={ type="Slider", min=0, max=3, valuestep=1, width=140, } , newline=true, },
 	{ stat="Decimals_DmgMod", spellclass="Decimals_DmgMod", default=0, widget={ type="Slider", min=0, max=3, valuestep=1, width=140, } , newline=true, },
 	{ stat="Decimals_DmgModSpell", spellclass="Decimals_DmgModSpell", default=0, widget={ type="Slider", min=0, max=3, valuestep=1, width=140, } , newline=true, },
-	{ stat="Decimals_Bronze", spellclass="Decimals_Bronze", default=0, widget={ type="Slider", min=0, max=3, valuestep=1, width=140, } , newline=true, },
-	{ stat="Decimals_Threads", spellclass="Decimals_Threads", default=0, widget={ type="Slider", min=0, max=3, valuestep=1, width=140, } , newline=true, },
-	-- caps
+	--
 	{ stat="Cap_Crit", spellclass="Cap_Crit", default=100, tooltip=true, widget={ type="EditBox", width=60, height=20, numeric=true, format="%.2f%%", }, },
 	{ stat="Cap_Haste", spellclass="Cap_Haste", default=100, tooltip=true, widget={ type="EditBox", width=60, height=20, numeric=true, format="%.2f%%", }, },
 	{ stat="Cap_Mastery", spellclass="Cap_Mastery", default=100, tooltip=true, widget={ type="EditBox", width=60, height=20, numeric=true, format="%.2f%%", }, },

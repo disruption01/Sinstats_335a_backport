@@ -11,7 +11,7 @@ function Ns.SinLive(self)
 	Ns.chaosBrand, Ns.mysticTouch, Ns.colossusSmash, Ns.razorIce = 0, 0, 0, 0
 	Ns.felSunder, Ns.faeExposure, Ns.brittle, Ns.eradication = 0, 0, 0, 0
 	Ns.charringEmbers, Ns.finalReck, Ns.judgement, Ns.barbedShot = 0, 0, 0, 0
-	Ns.ghostlyStrike, Ns.wanTwilight, Ns.huntersMark = 0, 0, 0
+	Ns.ghostlyStrike, Ns.wanTwilight = 0, 0
 
 	for i = 1, 40 do
 	local _, _, dcount, _, _, _, caster, _, _, debuffId = UnitDebuff("target", i)
@@ -39,14 +39,6 @@ function Ns.SinLive(self)
 			if Ns.BetweenEyes[debuffId] then Ns.betweenEyes = Ns.BetweenEyes[debuffId][1] end
 			if Ns.GhostlyStrike[debuffId] then Ns.ghostlyStrike = Ns.GhostlyStrike[debuffId][1] end
 			if Ns.WaningTwilight[debuffId] then Ns.wanTwilight = Ns.WaningTwilight[debuffId][1] end
-		end
-
-		-- health percentage-based debuffs
-		local health = UnitHealth("target")
-		local maxHealth = UnitHealthMax("target")
-		local percentHealth = (health / maxHealth) * 100
-		if Ns.HuntersMark[debuffId] and percentHealth >= 80 then
-			Ns.huntersMark = Ns.HuntersMark[debuffId][1]
 		end
 
 		if Ns.classFilename == "WARLOCK" then

@@ -106,11 +106,11 @@ function Ns.FunctionList.Versatility(HUD, data, options, ...)
 	local EB = options.Damage_Taken
 	local verDamage = GetVersatilityBonus(29) + GetCombatRatingBonus(29)
 	local verMitigate = GetVersatilityBonus(31) + GetCombatRatingBonus(31)
-	local rating = ""
+	--local versaRating = GetCombatRating(29)
 	local returnText, decimals
 	local capColor, endColor = "", ""
 
-	if options.Display_Rating then rating = " (" .. GetCombatRating(29) .. ")" end
+	if options.Display_Rating then verDamage = GetCombatRating(29); verMitigate = GetCombatRating(31) end
 
 	if options.Decimals_Versatility == 0 then decimals = "%.0f%%"
 	elseif options.Decimals_Versatility == 1 then decimals = "%.1f%%"
@@ -120,9 +120,9 @@ function Ns.FunctionList.Versatility(HUD, data, options, ...)
 	if verDamage >= options.Cap_Versa then capColor = Ns.greenText end
 	if capColor ~= "" then endColor = "|r" end
 
-	if Ns.Band(EB, Damage) then returnText = capColor .. (decimals):format(verDamage) .. endColor .. rating end
-	if Ns.Band(EB, DamageTaken) then returnText = capColor .. (decimals):format(verMitigate) .. endColor .. rating end
-	if Ns.Band(EB, Both) then returnText = capColor .. (decimals):format(verDamage) .. endColor .. "/" .. (decimals):format(verMitigate) .. rating end
+	if Ns.Band(EB, Damage) then returnText = capColor .. (decimals):format(verDamage) end
+	if Ns.Band(EB, DamageTaken) then returnText = (decimals):format(verMitigate) end
+	if Ns.Band(EB, Both) then returnText = capColor .. (decimals):format(verDamage) .. endColor .. " (" .. (decimals):format(verMitigate) .. ")" end
 
 	HUD:UpdateText(data, returnText)
 end

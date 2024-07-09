@@ -10,9 +10,12 @@ local L = Ns.L
 function Ns.ShortNumbers(num, places)
     local ret
     local placeValue = ("%%.%df"):format(places or 0)
-    if not num then return 0
-    elseif num >= 1000 then ret = placeValue:format(num / 1000) .. "k"
-	else ret = num -- hundreds
+    if not num then
+        return 0
+    elseif num >= 1000 then
+        ret = placeValue:format(num / 1000) .. "k"
+    else
+        ret = num -- hundreds
     end
     return ret
 end
@@ -27,10 +30,9 @@ function Ns.StatsCompute()
 	Ns.iridescence, Ns.arcaneSurge, Ns.enlightened, Ns.symbolsDeath = 0, 0, 0, 0
 	Ns.ebonMight, Ns.avatar, Ns.battleShout, Ns.defStance, Ns.feralSpirit = 0, 0, 0, 0, 0
 	Ns.bestialWrath, Ns.friendFae, Ns.retAura, Ns.inertia, Ns.GenePour = 0, 0, 0, 0, 0
-	Ns.thread = 0
 
 	for i = 1, 40 do
-		local name, _, count, _, _, _, _, _, _, spellId = UnitBuff("player",i, "HELPFUL")
+		local _, _, count, _, _, _, _, _, _, spellId = UnitBuff("player",i, "HELPFUL")
 
 		if not spellId then break end
 
@@ -64,24 +66,6 @@ function Ns.StatsCompute()
 		if Ns.RetAura[spellId] then Ns.retAura = Ns.RetAura[spellId][1] end
 		if Ns.Inertia[spellId] then Ns.inertia = Ns.Inertia[spellId][1] end
 		if Ns.GenPour[spellId] then Ns.GenePour = Ns.genPour end
-
-		if Ns.Threads[spellId] then
-			local aura = C_UnitAuras.GetAuraDataBySpellName("player", name)
-			if aura then
-				if aura.spellId == 440393 then
-					Ns.thread = Ns.thread + (aura.points[1] or 0)
-					Ns.thread = Ns.thread + (aura.points[2] or 0)
-					Ns.thread = Ns.thread + (aura.points[3] or 0)
-					Ns.thread = Ns.thread + (aura.points[4] or 0)
-					Ns.thread = Ns.thread + (aura.points[5] or 0)
-					Ns.thread = Ns.thread + (aura.points[6] or 0)
-					Ns.thread = Ns.thread + (aura.points[7] or 0)
-					Ns.thread = Ns.thread + (aura.points[8] or 0)
-					Ns.thread = Ns.thread + (aura.points[9] or 0)
-				end
-			end
-		end
-
 	end
 end
 

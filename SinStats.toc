@@ -1,30 +1,29 @@
-## Interface: 100207
+## Interface: 30300
 ## Title: |cff71FFC9SinStats|r
 ## Author: Sinba
-## Notes : Character Stats
-## Version: 5.8.8.6
+## Notes: Character Stats
+## Version: 5.7.29
 ## IconTexture: Interface\AddOns\SinStats\Textures\SinStatsLogo.blp
 ## X-Website: https://www.curseforge.com/wow/addons/sinstats
 ## X-Curse-Project-ID: 389802
 ## SavedVariables: SinStatsDB
 
 Locales\Core.lua
-Locales\Retail\enUS.lua
-Locales\Retail\koKR.lua
+Locales\Wrath\enUS.lua
+Locales\Wrath\koKR.lua
 embeds.xml
 SinStats.lua
 HUD.lua
 Widgets.lua
 Config.lua
-Retail.lua
+Wrath.lua
 HUDEvents.lua
-Stats\Retail\IDTables.lua
-Stats\Retail\Talents.lua
-Stats\Retail\Updater.lua
-Stats\Retail\SinLive.lua
-Stats\Retail\Enhancement.lua
-Stats\Retail\Physical.lua
-Stats\Retail\Spell.lua
-Stats\Retail\Currency.lua
-Stats\Retail\Misc.lua
-
+Stats\Wrath\IDTables.lua
+Stats\Wrath\Talents.lua
+Stats\Wrath\Updater.lua
+Stats\Wrath\SinLive.lua
+Stats\Wrath\Enhancement.lua
+Stats\Wrath\Physical.lua
+Stats\Wrath\Spell.lua
+Stats\Wrath\Currency.lua
+Stats\Wrath\Misc.lua

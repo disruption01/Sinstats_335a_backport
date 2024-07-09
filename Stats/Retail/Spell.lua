@@ -51,7 +51,7 @@ function Ns.FunctionList.SpellPower(HUD, data, options, ...)
 	spellPower = spellPower + (spellPower * Ns.shatteringStar) + (spellPower * Ns.radiantSpark) + (spellPower * Ns.chaosBrand) + (spellPower * Ns.felSunder) + (spellPower * Ns.serenity) +
 				(spellPower * Ns.luckOfDraw) + (spellPower * Ns.shadowForm) + (spellPower * Ns.runePower) + (spellPower * (Ns.incanterFlow/100)) + (spellPower * (Ns.eradication/100)) +
 				(spellPower * Ns.touchOfIce) + (spellPower * Ns.demonicSynergy) + (spellPower * (Ns.equilibrium/100)) + (spellPower * (Ns.InstinctArcana/100)) + (spellPower * (Ns.iridescence/100)) +
-				(spellPower * Ns.charringEmbers) + (spellPower * Ns.ebonMight) + (spellPower * (Ns.friendFae/100)) + (spellPower * (Ns.wanTwilight/100)) + (spellPower * (Ns.huntersMark/100))
+				(spellPower * Ns.charringEmbers) + (spellPower * Ns.ebonMight) + (spellPower * Ns.friendFae/100) + (spellPower * Ns.wanTwilight/100)
 
 	if Ns.Band(EB, Enhanced) then enhancedStat = spellPower end
 	if Ns.Band(EB, Base) then baseStat = basePower end
@@ -75,8 +75,7 @@ function Ns.FunctionList.DMGModSpell(HUD, data, options, ...)
 	spellMod = (Ns.shatteringStar * 100) + (Ns.radiantSpark * 100) + (Ns.chaosBrand * 100) + (Ns.felSunder * 100) + (Ns.serenity * 100) +
 			   (Ns.luckOfDraw * 100) + verDamage + (Ns.shadowForm * 100) + (Ns.runePower * 100) + Ns.incanterFlow + Ns.tigersFury +
 				Ns.eradication + (Ns.touchOfIce * 100) + (Ns.demonicSynergy * 100) + Ns.equilibrium + Ns.InstinctArcana + Ns.iridescence +
-				Ns.arcaneSurge + Ns.enlightened + (Ns.charringEmbers * 100) + (Ns.ebonMight * 100) + Ns.friendFae + Ns.wanTwilight + Ns.retAura +
-				Ns.huntersMark
+				Ns.arcaneSurge + Ns.enlightened + (Ns.charringEmbers * 100) + (Ns.ebonMight * 100) + Ns.friendFae + Ns.wanTwilight + Ns.retAura
 	spellMod = spellMod + 100
 
 	if spellMod <= 0 then spellMod = 100 end

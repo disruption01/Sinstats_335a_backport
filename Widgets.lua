@@ -367,8 +367,8 @@ function W.AnchorFrame(parent)
 	f.Description = f:CreateFontString()
 	f.Description:SetFont(Ns.ConfigDefaultFont, Ns.ConfigDefaultFontSize -3)
 	f.Description:SetPoint("TOP", f.Label, "BOTTOM", -25, -5)
-	--f.Description:SetJustifyH('TOP')
-	f.Description:SetJustifyH('LEFT')
+	f.Description:SetJustifyH("TOP")
+	f.Description:SetJustifyH("LEFT")
 	f.Description:SetWidth(Ns.maxOptionsWidth - (borderOffset / 2))
 
 	f.CurrentWidgets = {}
@@ -627,17 +627,13 @@ function Mixins.scripts.ColorPicker.OnClick(self, button, down)
 	local colour = { r=basecolour.r, g=basecolour.g, b=basecolour.b, }
 	ColorPickerFrame.previousValues = colour
 	ColorPickerFrame.colourBox = self
-    if ColorPickerFrame.SetupColorPickerAndShow then -- 10.2.5 suport for ColorPicker changes
+    if ColorPickerFrame.Content then -- 10.2.5 suport for ColorPicker changes
         local info = UIDropDownMenu_CreateInfo()
         info.r, info.g, info.b = colour.r, colour.g, colour.b
         info.swatchFunc = ColourPickerChange
         info.cancelFunc = ColourPickerCancel
         ColorPickerFrame:SetupColorPickerAndShow(info)
-        if ColorPickerFrame.Content then
-			ColorPickerFrame.Content.ColorPicker:SetColorRGB(colour.r, colour.g, colour.b)
-		else
-			ColorPickerFrame:SetColorRGB(colour.r, colour.g, colour.b)
-		end
+        ColorPickerFrame.Content.ColorPicker:SetColorRGB(colour.r, colour.g, colour.b)
     else
         ColorPickerFrame.func = ColourPickerChange
         ColorPickerFrame.cancelFunc = ColourPickerCancel

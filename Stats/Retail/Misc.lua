@@ -273,7 +273,6 @@ function Ns.FunctionList.MythicPlus(HUD, data, options, ...)
 	if Ns.Band(EB, Season) then returnText = coloredRating end
 	if Ns.Band(EB, Expansion) then returnText = coloredBest end
 	if Ns.Band(EB, Both) then returnText = coloredRating .. "|r/" .. coloredBest end
-
 	if returnText == nil then returnText = 0 end
 
 	HUD:UpdateText(data, returnText)

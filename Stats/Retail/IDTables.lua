@@ -9,7 +9,6 @@ local L = Ns.L
 Ns.greenText, Ns.redText, Ns.orangeText, Ns.blueText, Ns.purpleText, Ns.whiteText = "|cff71FFC9", "|cffC41E3A", "|cffFF7C0A", "|cff0070FF", "|cffA335EE", "|cffffffff"
 Ns.classFilename = select(2, UnitClass("player"))
 Ns.shatteringStar, Ns.combustion, Ns.luckOfDraw, Ns.percentLoamm = 0, 0, 0, 0
-Ns.thread = 0
 -- evoker
 Ns.InstinctArcana, Ns.iridescence, Ns.ebonMight = 0, 0, 0
 -- monk
@@ -33,7 +32,7 @@ Ns.charringEmbers = 0
 -- priest
 Ns.shadowForm = 0
 -- hunter
-Ns.LoneWolf, Ns.barbedShot, Ns.bestialWrath, Ns.huntersMark = 0, 0, 0, 0
+Ns.LoneWolf, Ns.barbedShot, Ns.bestialWrath = 0, 0, 0
 -- druid
 Ns.tigersFury = 0
 -- paladin
@@ -48,10 +47,6 @@ Ns.friendFae, Ns.wanTwilight = 0, 0
 --------------------------
 --		ID Tables		--
 --------------------------
-
-Ns.Threads = {
-	[440393] = true,
-}
 
 Ns.ShatteringStar = {
 	[370452] = {0.2},
@@ -71,10 +66,6 @@ Ns.WaningTwilight = {
 
 Ns.Momentum = {
 	[208628] = {8},
-}
-
-Ns.HuntersMark = {
-	[257284] = {0.08},
 }
 
 Ns.Combustion = {
@@ -234,10 +225,10 @@ Ns.GenPour = {
 }
 
 Ns.Crest = {
-	Whelp = {"211520", "211520", "211520"},
+	Whelpling = {204193}, {204681},
 	Drake = {204195},
-	Wyrm = {"211518", "211518", "211518"},
-	Aspect = {"211519", "211519", "211519"},
+	Wyrm = {"204196", "204692", "206960"},
+	Aspect = {"204194", "204697", "206961"},
 }
 
 Ns.Spark = {
@@ -245,8 +236,6 @@ Ns.Spark = {
 	Ingenuity = 190453,
 	Dreams = 206959,
 	splDreams = 208396,
-	Awake = 211516,
-	splAwake = 211515,
 }
 
 Ns.DefStance = {
@@ -269,4 +258,4 @@ Ns.Seeds = {
 
 Ns.BestialWrath = {
 	[19574] = {25},
-}
+} 

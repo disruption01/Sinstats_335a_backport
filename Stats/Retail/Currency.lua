@@ -5,7 +5,6 @@ local L = Ns.L
 --		Options Equates		--
 ------------------------------
 local Both, Level, Honor, Shadowflame, Ingenuity, Spark, Splinter, Normal, Enchanted = 3, 1, 2, 1, 2, 1, 2, 1, 2
-local Gigantic, Plump = 1, 2
 
 ----------------------------------
 --		Text Return Formats		--
@@ -239,11 +238,7 @@ end
 -- Whelpling Crest
 function Ns.FunctionList.WhelplingCrest(HUD, data, options, ...)
 
-	local EB = options.Normal_Enchanted
-	local returnText
-
-	local crest = C_CurrencyInfo.GetCurrencyInfo(2806)
-	local enchantedCrest = GetItemCount(Ns.Crest.Whelp[3], true)
+	local crest = C_CurrencyInfo.GetCurrencyInfo(2706)
 	local crestDisplay = 0
 	local max = crest.maxQuantity or 0
 	local earn = crest.totalEarned or 0
@@ -254,19 +249,14 @@ function Ns.FunctionList.WhelplingCrest(HUD, data, options, ...)
 
 	if options.Display_Max and earn == max then capColor = Ns.redText end
 
-	if Ns.Band(EB, Normal) then returnText = crestDisplay end
-	if Ns.Band(EB, Enchanted) then returnText = enchantedCrest end
-	if Ns.Band(EB, Both) then returnText = crestDisplay .. "/" .. enchantedCrest end
-	if returnText == nil then returnText = 0 end
-
-	HUD:UpdateText(data, capColor .. returnText)
+	HUD:UpdateText(data, capColor .. crestDisplay)
 end
 ------------------------------------------------
 
 -- Drake Crest
 function Ns.FunctionList.DrakeCrest(HUD, data, options, ...)
 
-	local crest = C_CurrencyInfo.GetCurrencyInfo(2807)
+	local crest = C_CurrencyInfo.GetCurrencyInfo(2707)
 	local crestDisplay = 0
 	local max = crest.maxQuantity or 0
 	local earn = crest.totalEarned or 0
@@ -287,7 +277,7 @@ function Ns.FunctionList.WyrmCrest(HUD, data, options, ...)
 	local EB = options.Normal_Enchanted
 	local returnText
 
-	local crest = C_CurrencyInfo.GetCurrencyInfo(2809)
+	local crest = C_CurrencyInfo.GetCurrencyInfo(2708)
 	local enchantedCrest = GetItemCount(Ns.Crest.Wyrm[3], true)
 	local crestDisplay = 0
 	local max = crest.maxQuantity or 0
@@ -314,7 +304,7 @@ function Ns.FunctionList.AspectCrest(HUD, data, options, ...)
 	local EB = options.Normal_Enchanted
 	local returnText
 
-	local crest = C_CurrencyInfo.GetCurrencyInfo(2812)
+	local crest = C_CurrencyInfo.GetCurrencyInfo(2709)
 	local enchantedCrest = GetItemCount(Ns.Crest.Aspect[3], true)
 	local crestDisplay = 0
 	local max = crest.maxQuantity or 0
@@ -335,13 +325,13 @@ function Ns.FunctionList.AspectCrest(HUD, data, options, ...)
 end
 ------------------------------------------------
 
--- Spark of Awakening
+-- Spark of Dreams
 function Ns.FunctionList.SparkDreams(HUD, data, options, ...)
 
 	local EB = options.Splint_Spark
 	local returnText
-	local spark = GetItemCount(Ns.Spark.Awake, true)
-	local splinter = GetItemCount(Ns.Spark.splAwake, true)
+	local spark = GetItemCount(Ns.Spark.Dreams, true)
+	local splinter = GetItemCount(Ns.Spark.splDreams, true)
 
 	if Ns.Band(EB, Spark) then returnText = spark end
 	if Ns.Band(EB, Splinter) then returnText = splinter end
@@ -352,55 +342,33 @@ function Ns.FunctionList.SparkDreams(HUD, data, options, ...)
 end
 ------------------------------------------------
 
--- Antique Bronze Bullion
-function Ns.FunctionList.Bullion(HUD, data, options, ...)
+-- Crafting Sparks
+function Ns.FunctionList.CraftingSpark(HUD, data, options, ...)
 
-	local bullion = GetItemCount(213089, true)
+	local EB = options.Shadow_Ing
+	local returnText
+	local sparkShadow = GetItemCount(Ns.Spark.Shadowflame, true)
+	local sparkIng = GetItemCount(Ns.Spark.Ingenuity, true)
 
+	if Ns.Band(EB, Shadowflame) then returnText = sparkShadow end
+	if Ns.Band(EB, Ingenuity) then returnText = sparkIng end
+	if Ns.Band(EB, Both) then returnText = sparkShadow .. "/" .. sparkIng end
+	if returnText == nil then returnText = 0 end
 
-	HUD:UpdateText(data, bullion)
+	HUD:UpdateText(data, returnText)
 end
 ------------------------------------------------
 
--- Bronze
-function Ns.FunctionList.Bronze(HUD, data, options, ...)
+-- Renascent Dream
+function Ns.FunctionList.Renascent(HUD, data, options, ...)
 
-	local bronze = C_CurrencyInfo.GetCurrencyInfo(2778)
-	local bronzeDisplay = 0
+	local renascent = C_CurrencyInfo.GetCurrencyInfo(2796)
+	local renascentDisplay = 0
 
-	if bronze.name and tonumber(bronze.quantity) then bronzeDisplay = bronze.quantity
-	else bronzeDisplay = 0 end
+	if renascent.name and tonumber(renascent.quantity) then renascentDisplay = renascent.quantity
+	else renascentDisplay = 0 end
 
-	if options.Decimals_Bronze == 0 then
-		bronzeDisplay = BreakUpLargeNumbers(bronzeDisplay)
-	elseif options.Decimals_Bronze == 1 then
-		bronzeDisplay = Ns.ShortNumbers(bronzeDisplay, 0)
-	elseif options.Decimals_Bronze == 2 then
-		bronzeDisplay = Ns.ShortNumbers(bronzeDisplay, 1)
-	else
-		bronzeDisplay = Ns.ShortNumbers(bronzeDisplay, 2)
-	end
-
-	HUD:UpdateText(data, bronzeDisplay)
-end
-------------------------------------------------
-
--- Threads (Pandaria Remix)
-function Ns.FunctionList.Threads(HUD, data, options, ...)
-
-	local threads = Ns.thread
-
-	if options.Decimals_Threads == 0 then
-		threads = BreakUpLargeNumbers(threads)
-	elseif options.Decimals_Threads == 1 then
-		threads = Ns.ShortNumbers(threads, 0)
-	elseif options.Decimals_Threads == 2 then
-		threads = Ns.ShortNumbers(threads, 1)
-	else
-		threads = Ns.ShortNumbers(threads, 2)
-	end
-
-	HUD:UpdateText(data, threads)
+	HUD:UpdateText(data, renascentDisplay)
 end
 ------------------------------------------------
 
@@ -420,17 +388,9 @@ end
 -- Gigantic Seed
 function Ns.FunctionList.GigaSeed(HUD, data, options, ...)
 
-	local EB = options.Giga_Plump
-	local returnText
-	local giga = GetItemCount(Ns.Seeds.Gigantic, true)
-	local plump = GetItemCount(Ns.Seeds.Plump, true)
+	local seed = GetItemCount(Ns.Seeds.Gigantic, true)
 
-	if Ns.Band(EB, Gigantic) then returnText = giga end
-	if Ns.Band(EB, Plump) then returnText = plump end
-	if Ns.Band(EB, Both) then returnText = giga .. "/" .. plump end
-	if returnText == nil then returnText = 0 end
-
-	HUD:UpdateText(data, returnText)
+	HUD:UpdateText(data, seed)
 end
 ------------------------------------------------
 

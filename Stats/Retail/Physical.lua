@@ -97,7 +97,7 @@ function Ns.FunctionList.DMG(HUD, data, options, ...)
 
 	if speed > 0 then
 		local _, rlowDmg, rhiDmg, _ = UnitRangedDamage("player")
-		totalDamage = rhiDmg + (rhiDmg * Ns.mysticTouch) + (rhiDmg * Ns.razorIce) + (rhiDmg * Ns.luckOfDraw) + (rhiDmg * (Ns.bestialWrath/100)) + (rhiDmg * Ns.luckOfDraw)
+		totalDamage = rhiDmg + (rhiDmg * Ns.mysticTouch) + (rhiDmg * Ns.razorIce) + (rhiDmg * Ns.luckOfDraw) + (rhiDmg * (Ns.bestialWrath/100))
 		avgDamage = (rhiDmg + rlowDmg) / 2
 		avgDamage = avgDamage + (avgDamage * Ns.mysticTouch) + (avgDamage * Ns.razorIce) + (avgDamage * Ns.luckOfDraw) + (avgDamage * (Ns.bestialWrath/100))
 		avgOhDmg = ""
@@ -110,7 +110,7 @@ function Ns.FunctionList.DMG(HUD, data, options, ...)
 		meleeDamageOH = meleeDamageOH + (meleeDamageOH * Ns.mysticTouch) + (meleeDamageOH * Ns.colossusSmash) + (meleeDamageOH * Ns.razorIce) + (meleeDamageOH * Ns.felSunder) +
 					   (meleeDamageOH * Ns.faeExposure) + (meleeDamageOH * Ns.serenity) + (meleeDamageOH * Ns.luckOfDraw) + (meleeDamageOH * Ns.brittle) +
 					   (meleeDamageOH * (Ns.finalReck/100)) + (meleeDamageOH * Ns.seethChaos) + (meleeDamageOH * Ns.ebonMight) + (meleeDamageOH * (Ns.judgement/100)) +
-					   (meleeDamageOH * (Ns.feralSpirit/100)) + (meleeDamageOH * Ns.ghostlyStrike) + (meleeDamageOH * Ns.huntersMark)
+					   (meleeDamageOH * (Ns.feralSpirit/100)) + (meleeDamageOH * Ns.ghostlyStrike)
 		meleeDamageOH = "/" .. (decimals):format(meleeDamageOH)
 	else
 		meleeDamageOH = ""
@@ -122,7 +122,7 @@ function Ns.FunctionList.DMG(HUD, data, options, ...)
 
 	totalDamage = totalDamage + (totalDamage * Ns.mysticTouch) + (totalDamage * Ns.colossusSmash) + (totalDamage * Ns.razorIce) + (totalDamage * Ns.felSunder) + (totalDamage * Ns.faeExposure) + (totalDamage * Ns.serenity) +
 				(totalDamage * Ns.luckOfDraw) + (totalDamage * Ns.brittle) + (totalDamage * (Ns.finalReck/100)) + (totalDamage * Ns.seethChaos) + (totalDamage * Ns.ebonMight) + (totalDamage * (Ns.judgement/100)) +
-				(totalDamage * (Ns.feralSpirit/100)) + (totalDamage * Ns.ghostlyStrike) + (totalDamage * Ns.huntersMark)
+				(totalDamage * (Ns.feralSpirit/100)) + (totalDamage * Ns.ghostlyStrike)
 
 	if negBuff < 0 then debuffColor = "|cffC41E3A" end
 
@@ -154,11 +154,11 @@ function Ns.FunctionList.DMGMod(HUD, data, options, ...)
 			 (Ns.serenity * 100) + (Ns.luckOfDraw * 100) + (Ns.brittle * 100) + Ns.loneWolf + Ns.hitCombo + verDamage + Ns.demonSoul +
 			  Ns.ferocityXuen + Ns.tigersFury + Ns.finalReck + Ns.judgement + Ns.momentum + (Ns.seethChaos * 100) + Ns.symbolsDeath +
 			  (Ns.ebonMight * 100) + Ns.avatar + Ns.battleShout - Ns.defStance + Ns.feralSpirit + (Ns.ghostlyStrike * 100) + Ns.retAura
-			  + Ns.inertia + (Ns.huntersMark * 100)
+			  + Ns.inertia
 	dmgMod = dmgMod + (pmod * 10) + 100
 
 	rdmgMod = (Ns.mysticTouch * 100) + (Ns.razorIce * 100) + (Ns.luckOfDraw * 100) + Ns.loneWolf  + Ns.bestialWrath
-			  + (Ns.mysticTouch * 100) + Ns.retAura + (Ns.huntersMark * 100)
+			  + (Ns.mysticTouch * 100) + Ns.retAura
 	rdmgMod = rdmgMod + (rpmod * 10) + 100
 
 	if dmgMod <= 0 then dmgMod = 100 end
@@ -195,10 +195,10 @@ function Ns.FunctionList.DPS(HUD, data, options, ...)
 	elseif meleeSpeed > 0 then
 		hiDmg = hiDmg + (hiDmg * Ns.mysticTouch) + (hiDmg * Ns.colossusSmash) + (hiDmg * Ns.razorIce) + (hiDmg * Ns.felSunder) + (hiDmg * Ns.faeExposure) +
 					(hiDmg * Ns.serenity) + (hiDmg * Ns.luckOfDraw) + (hiDmg * Ns.brittle) + (hiDmg * (Ns.finalReck/100)) + (hiDmg * Ns.seethChaos) +
-					(hiDmg * Ns.ebonMight) + (hiDmg * (Ns.judgement/100)) + (hiDmg * (Ns.feralSpirit/100)) + (hiDmg * Ns.ghostlyStrike) + (hiDmg * Ns.huntersMark)
+					(hiDmg * Ns.ebonMight) + (hiDmg * (Ns.judgement/100)) + (hiDmg * (Ns.feralSpirit/100) + (hiDmg * Ns.ghostlyStrike))
 		lowDmg = lowDmg + (lowDmg * Ns.mysticTouch) + (lowDmg * Ns.colossusSmash) + (lowDmg * Ns.razorIce) + (lowDmg * Ns.felSunder) + (lowDmg * Ns.faeExposure) +
 					(lowDmg * Ns.serenity) + (lowDmg * Ns.luckOfDraw) + (lowDmg * Ns.brittle) + (lowDmg * (Ns.finalReck/100)) + (lowDmg * Ns.seethChaos) +
-					(lowDmg * Ns.ebonMight) + (lowDmg * (Ns.judgement/100)) + (lowDmg * (Ns.feralSpirit/100)) + (lowDmg * Ns.ghostlyStrike) + (lowDmg * Ns.huntersMark)
+					(lowDmg * Ns.ebonMight) + (lowDmg * (Ns.judgement/100)) + (lowDmg * (Ns.feralSpirit/100) + (lowDmg * Ns.ghostlyStrike))
 		mainDPS = ((lowDmg + hiDmg) / 2) / meleeSpeed
 	end
 
@@ -208,10 +208,10 @@ function Ns.FunctionList.DPS(HUD, data, options, ...)
 	elseif meleeoffSpeed > 0 then
 		offhiDmg = offhiDmg + (offhiDmg * Ns.mysticTouch) + (offhiDmg * Ns.colossusSmash) + (offhiDmg * Ns.razorIce) + (offhiDmg * Ns.felSunder) + (offhiDmg * Ns.faeExposure) +
 					(offhiDmg * Ns.serenity) + (offhiDmg * Ns.luckOfDraw) + (offhiDmg * Ns.brittle) + (offhiDmg * (Ns.finalReck/100)) + (offhiDmg * Ns.seethChaos) +
-					(offhiDmg * Ns.ebonMight) + (offhiDmg * (Ns.judgement/100)) + (offhiDmg * (Ns.feralSpirit/100)) + (offhiDmg * Ns.ghostlyStrike) + (offlowDmg * Ns.huntersMark)
+					(offhiDmg * Ns.ebonMight) + (offhiDmg * (Ns.judgement/100)) + (offhiDmg * (Ns.feralSpirit/100) + (offhiDmg * Ns.ghostlyStrike))
 		offlowDmg = offlowDmg + (offlowDmg * Ns.mysticTouch) + (offlowDmg * Ns.colossusSmash) + (offlowDmg * Ns.razorIce) + (offlowDmg * Ns.felSunder) + (offlowDmg * Ns.faeExposure) +
 					(offlowDmg * Ns.serenity) + (offlowDmg * Ns.luckOfDraw) + (offlowDmg * Ns.brittle) + (offlowDmg * (Ns.finalReck/100)) + (offlowDmg * Ns.seethChaos) +
-					(offlowDmg * Ns.ebonMight) + (offlowDmg * (Ns.judgement/100)) + (offlowDmg * (Ns.feralSpirit/100) + (offlowDmg * Ns.ghostlyStrike) + (offlowDmg * Ns.huntersMark))
+					(offlowDmg * Ns.ebonMight) + (offlowDmg * (Ns.judgement/100)) + (offlowDmg * (Ns.feralSpirit/100) + (offlowDmg * Ns.ghostlyStrike))
 		offDPS = (decimals):format(((offlowDmg + offhiDmg) / 2) / meleeoffSpeed)
 		separator = "/"
 	end
@@ -219,9 +219,9 @@ function Ns.FunctionList.DPS(HUD, data, options, ...)
 	if rangedSpeed == nil or rangedSpeed == 0 then rangedSpeed = 0
 	else
 		rhiDmg = rhiDmg + (rhiDmg * Ns.mysticTouch) + (rhiDmg * Ns.colossusSmash) + (rhiDmg * Ns.razorIce) + (rhiDmg * Ns.felSunder) + (rhiDmg * Ns.faeExposure) +
-						(rhiDmg * Ns.serenity) + (rhiDmg * Ns.luckOfDraw) + (rhiDmg * Ns.ebonMight) + (rhiDmg * (Ns.bestialWrath/100)) + (rhiDmg * (Ns.huntersMark))
+						(rhiDmg * Ns.serenity) + (rhiDmg * Ns.luckOfDraw) + (rhiDmg * Ns.ebonMight) + (rhiDmg * (Ns.bestialWrath/100))
 		rlowDmg = rlowDmg + (rlowDmg * Ns.mysticTouch) + (rlowDmg * Ns.colossusSmash) + (rlowDmg * Ns.razorIce) + (rlowDmg * Ns.felSunder) + (rlowDmg * Ns.faeExposure) +
-					(rlowDmg * Ns.serenity) + (rlowDmg * Ns.luckOfDraw) + (rlowDmg * Ns.ebonMight) + (rlowDmg * (Ns.bestialWrath/100)) + (rhiDmg * (Ns.huntersMark))
+					(rlowDmg * Ns.serenity) + (rlowDmg * Ns.luckOfDraw) + (rlowDmg * Ns.ebonMight) + (rlowDmg * (Ns.bestialWrath/100))
 		rangedDPS = ((rlowDmg + rhiDmg) / 2) / rangedSpeed
 	end
 
