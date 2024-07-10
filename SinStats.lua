@@ -204,6 +204,21 @@ f.HUD.Background:SetVertexColor(0.1, 0.1, 0.1, 0)
 f.HUD.Background:SetPoint("TOPLEFT", f, "BOTTOMLEFT", 0, 1)
 -- f.HUD.Background:SetPoint("TOPRIGHT", f, "BOTTOMRIGHT")
 f.HUD.StatList = {}
+-- Create a frame for handling timer functionality
+local timerFrame = CreateFrame("Frame")
+
+-- Function to delay execution of a function
+local function DelayExecution(delay, func)
+    local elapsed = 0
+    timerFrame:SetScript("OnUpdate", function(self, dt)
+        elapsed = elapsed + dt
+        if elapsed >= delay then
+            self:SetScript("OnUpdate", nil)
+            func()
+        end
+    end)
+end
+
 f.HUD:SetScript("OnEvent", function(self, event, ...)
     if event == "PLAYER_LOGIN" then
         Ns:InitialiseVersionData()
@@ -238,7 +253,7 @@ f.HUD:SetScript("OnEvent", function(self, event, ...)
             Ns.OnEventFunc(event, ...)
         end)
 
-        C_Timer.After(1, function()
+        DelayExecution(1, function()
             self:GetScript("OnEvent")(SinStatsFrame, "UPDATE_INVENTORY_DURABILITY")
             self:GetScript("OnEvent")(SinStatsFrame, "PLAYER_EQUIPMENT_CHANGED")
         end)
@@ -272,6 +287,7 @@ f.HUD:SetScript("OnEvent", function(self, event, ...)
         Ns:InitialiseProfile(Ns.Profile)
     end
 end)
+
 f.HUD:RegisterEvent("PLAYER_LOGIN")
 f.HUD:RegisterEvent("UPDATE_INVENTORY_DURABILITY")
 

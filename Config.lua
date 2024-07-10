@@ -729,11 +729,11 @@ local function InitConfig()
     f.Background:SetVertexColor(0.09020, 0.09020, 0.09020) -- Example of adjusting vertex color
     f:SetSize(Ns.ConfigWidth or 800, Ns.ConfigHeight or 500)
 
-    f.SideBackground = f:CreateTexture()
-    f.SideBackground:SetDrawLayer("ARTWORK", 1)
+    f.SideBackground = f:CreateTexture(nil, "ARTWORK")
     f.SideBackground:SetSize(151, Ns.ConfigHeight)
     f.SideBackground:SetPoint("TOPLEFT", 0, 0)
-    f.SideBackground:SetColorTexture(0.08020, 0.08020, 0.08020, 0.5)
+    f.SideBackground:SetTexture(0.08020, 0.08020, 0.08020) -- Use SetTexture for setting color
+    f.SideBackground:SetVertexColor(0.5, 0.5, 0.5, 0.5) -- Use SetVertexColor to set alpha    
 
     f:SetClampedToScreen(false)
     f:RegisterForDrag("LeftButton")
@@ -778,35 +778,36 @@ local function InitConfig()
     f.Caption:SetPoint("TOPLEFT")
     f.Caption:SetPoint("BOTTOMRIGHT", f, "TOPRIGHT", 0, -50)
 
-    f.TopBorder = f:CreateLine()
-    f.TopBorder:SetDrawLayer("OVERLAY", 1)
-    f.TopBorder:SetThickness(3)
+    f.TopBorder = f:CreateTexture(nil, "OVERLAY")
+    f.TopBorder:SetSize(1, 3) -- Adjust the size as needed
     f.TopBorder:SetAlpha(0.5)
-    f.TopBorder:SetStartPoint("BOTTOMLEFT", f.Caption, 10, 100)
-    f.TopBorder:SetEndPoint("BOTTOMRIGHT", f.Caption, -10, -2)
-    f.TopBorder:SetColorTexture(0.05, 0.05, 0.05, 0)
+    f.TopBorder:SetPoint("BOTTOMLEFT", f.Caption, 10, 100) -- Adjust the positioning
+    f.TopBorder:SetPoint("BOTTOMRIGHT", f.Caption, -10, 100) -- Adjust the positioning
+    f.TopBorder:SetTexture(0.05, 0.05, 0.05) -- Set the RGB color values    
 
-    f.SideBorder = f:CreateLine()
-    f.SideBorder:SetDrawLayer("OVERLAY", 1)
-    f.SideBorder:SetThickness(1)
+    f.SideBorder = f:CreateTexture(nil, "OVERLAY")
+    f.SideBorder:SetSize(1, Ns.ConfigHeight) -- Adjust the size as needed
     f.SideBorder:SetAlpha(1)
-    f.SideBorder:SetStartPoint("LEFT", f.TopBorder, 141, 0)
-    f.SideBorder:SetEndPoint("BOTTOMLEFT", f, 151, 0)
-    -- f.SideBorder:SetColorTexture(unpack(borderColor))
-    f.SideBorder:SetColorTexture(0, 0, 0)
+    f.SideBorder:SetPoint("LEFT", f.TopBorder, "RIGHT", 0, 0) -- Adjust the positioning
+    f.SideBorder:SetTexture(0, 0, 0) -- Set the RGB color values
 
     f.Version = f:CreateFontString("$parentTitle", "OVERLAY")
     f.Version:SetFont(Ns.ConfigDefaultFont, Ns.ConfigDefaultFontSize - 6)
     f.Version:SetPoint("BOTTOMLEFT", 65, 1)
     f.Version:SetText("|cff71ffc9" .. addVer .. "|r")
+    -- Determine sidePanelWidth
+    local sidePanelWidth = 1 -- Set to the appropriate value or calculate it based on your layout
 
-    local _, _, _, y = f.SideBorder:GetStartPoint()
-    sidePanelWidth = select(3, f.SideBorder:GetStartPoint())
-    Ns.maxOptionsWidth = f:GetWidth() - sidePanelWidth - 30 -- -30 right indent size
-    Ns.SeparatorWidth = Ns.maxOptionsWidth / 1.15
+    -- Calculate maxOptionsWidth and SeparatorWidth
+    Ns.maxOptionsWidth = f:GetWidth() - sidePanelWidth - 30 -- Adjust 30 according to your layout
+    Ns.SeparatorWidth = Ns.maxOptionsWidth / 1.15 -- Adjust the division factor as needed
+
+    -- Create a top anchor frame for positioning
     f.TopAnchor = CreateFrame("Frame", nil, f)
-    f.TopAnchor:SetSize(5, 2)
-    f.TopAnchor:SetPoint("TOP", (sidePanelWidth / 2), y - 10) -- x,y entire right side panel content
+    f.TopAnchor:SetSize(5, 2) -- Set the size as needed
+    f.TopAnchor:SetPoint("TOP", f, "TOPRIGHT", -sidePanelWidth / 2, -10) -- Adjust the positioning relative to f
+
+    -- Store TopAnchor in Ns table if needed
     Ns.TopAnchor = f.TopAnchor
 
     CreateMainMenu()

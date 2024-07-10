@@ -92,19 +92,36 @@ local OpPoints = {
 
 Ns.HUDAnchor = nil
 
+-- Define a function to mix in methods from one table to another
+local function Mixin(target, mixin)
+    for k, v in pairs(mixin) do
+        if type(v) == "function" then
+            target[k] = v
+        end
+    end
+end
+
 ----------------------------------
 --		Local Accociations		--
 ----------------------------------
+-- Function to create a new stat object
 local function CreateStat()
     if #statPool > 0 then
         local stat = statPool[1]
         tremove(statPool, 1)
         return stat
     end
+
+    -- Create the font string
     local f = SinStatsFrame.HUD:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+
+    -- Mix in the StatMixin
     Mixin(f, Ns.StatMixin)
+
+    -- Set additional properties
     f:SetVertexColor(1, 1, 1)
     f.ProfileSettings = {}
+
     return f
 end
 
@@ -230,10 +247,15 @@ function Ns:GetSpellIcon(lookup, flags)
         if lookup.spell and not Ns.Band(flags, Ns.ForceIcon) then
             icon = select(3, GetSpellInfo(lookup.spell))
         elseif lookup.item and not Ns.Band(flags, Ns.ForceIcon) then
-            icon = select(5, GetItemInfoInstant(lookup.item))
+            local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = GetItemInfo(lookup.item)
+            if itemIcon then
+                icon = itemIcon
+            else
+                icon = "Interface\\Icons\\INV_Misc_QuestionMark"
+            end
         elseif lookup.currency and not Ns.Band(flags, Ns.ForceIcon) then
-            icon = C_CurrencyInfo.GetCurrencyInfo(lookup.currency)
-            icon = icon.iconFileID
+            local currencyInfo = C_CurrencyInfo.GetCurrencyInfo(lookup.currency)
+            icon = currencyInfo and currencyInfo.iconFileID or "Interface\\Icons\\INV_Misc_QuestionMark"
         elseif lookup.icon then
             icon = lookup.icon
             if not icon or strtrim(icon) == "" then
@@ -246,12 +268,15 @@ function Ns:GetSpellIcon(lookup, flags)
     else
         icon = lookup
     end
+
     if Ns.Band(flags, Ns.IgnoreFormat) then
         return icon
     end
+
     if icon then
         icon = "|T" .. icon .. ":0|t"
     end
+
     return icon or ""
 end
 
@@ -372,11 +397,15 @@ function Ns:InitialiseProfile(profile)
     if not byPlayerClassId then
         byPlayerClassId = {}
         -- remove classes that don't exists in client version currently being played
-        for k, v in pairs(Ns.byPlayerClass) do
-            if not C_CreatureInfo.GetClassInfo(v) then
-                Ns.byPlayerClass[k] = nil
+        if not byPlayerClassId then
+            byPlayerClassId = {}
+            -- Example of pre-defined class IDs
+            local classIDs = {1, 2, 3, 4, 5, 6, 7, 8, 9, 11} -- Adjust with actual class IDs used in your addon
+            for k, v in ipairs(classIDs) do
+                byPlayerClassId[v] = k
             end
         end
+
         -- Build the list of classes by ID
         for k, v in pairs(Ns.byPlayerClass) do
             byPlayerClassId[v] = k
@@ -422,13 +451,14 @@ function Ns:InitialiseProfile(profile)
         Ns.eventChecked = true
     end
 
-    if Ns.sshMiniButton:IsButtonCompartmentAvailable() then
-        if profile.CompButton then
-            Ns.sshMiniButton:AddButtonToCompartment("SinStats")
-        else
-            Ns.sshMiniButton:RemoveButtonFromCompartment("SinStats")
-        end
-    end
+    -- TODO: FIX ME
+    -- if Ns.sshMiniButton:IsButtonCompartmentAvailable() then
+    --     if profile.CompButton then
+    --         Ns.sshMiniButton:AddButtonToCompartment("SinStats")
+    --     else
+    --         Ns.sshMiniButton:RemoveButtonFromCompartment("SinStats")
+    --     end
+    -- end
 
     if profile.EventEnable then
         if not profile.EventWorld and not profile.EventDungeon and not profile.EventRaid and not profile.EventPvP and
@@ -557,7 +587,20 @@ function Ns:InitialiseProfile(profile)
         SinStatsFrame:SetFrameStrata(profile.HUDStrata)
     end
 
-    LibDBIcon10_SinStats:SetShown(profile.Minimap.Show)
+    -- Assuming LibDBIcon10_SinStats is your icon object
+    local icon = LibDBIcon10_SinStats
+
+    -- Ensure the icon object exists and has the Hide/Show methods
+    if icon and icon.Hide and icon.Show then
+        if profile.Minimap.Show then
+            icon:Show() -- Show the icon
+        else
+            icon:Hide() -- Hide the icon
+        end
+    else
+        print("LibDBIcon10_SinStats does not support Show/Hide methods.")
+    end
+
     SinStatsFrame.HUD:UnregisterAllEvents() -- Stop event processing
     wipe(Ns.OnUpdateList)
     Ns:ClearOtherUpdates()
@@ -681,15 +724,58 @@ function Ns:InitialiseProfile(profile)
     end
     for event, eveninfo in pairs(Ns.GlobalEvents) do
         if type(eveninfo) == "table" then
-            SinStatsFrame.HUD:RegisterUnitEvent(event, unpack(eveninfo)) -- Assumes event is not being used more that once globaly or in a stat's events={} list
-            for _, unit in pairs(eveninfo) do
-                SinStatsFrame.HUD:GetScript("OnEvent")(SinStatsFrame.HUD, event, unit)
+            for _, unit in ipairs(eveninfo) do
+                SinStatsFrame.HUD:RegisterEvent(event)
+                SinStatsFrame.HUD:SetScript("OnEvent", function(self, event, ...)
+                    -- Actual event handling logic for unit-specific events
+                    if event == "UNIT_HEALTH" then
+                        local unitID = ...
+                        -- Example logic for UNIT_HEALTH
+                        local health = UnitHealth(unitID)
+                        print("Health for unit " .. unitID .. ": " .. health)
+                        -- Update HUD with health info
+                        SinStatsFrame.HUD:UpdateHealth(unitID, health)
+                    elseif event == "UNIT_MANA" then
+                        local unitID = ...
+                        -- Example logic for UNIT_MANA
+                        local mana = UnitMana(unitID)
+                        print("Mana for unit " .. unitID .. ": " .. mana)
+                        -- Update HUD with mana info
+                        SinStatsFrame.HUD:UpdateMana(unitID, mana)
+                    elseif event == "PLAYER_LEVEL_UP" then
+                        local level = ...
+                        print("Player level up to " .. level)
+                        -- Update HUD with new player level
+                        SinStatsFrame.HUD:UpdateLevel(level)
+                    end
+                end)
             end
         else
             SinStatsFrame.HUD:RegisterEvent(event)
-            SinStatsFrame.HUD:GetScript("OnEvent")(SinStatsFrame.HUD, event)
+            SinStatsFrame.HUD:SetScript("OnEvent", function(self, event, ...)
+                -- Actual event handling logic for non-unit events
+                if event == "PLAYER_ENTERING_WORLD" then
+                    print("Player entering world")
+                    -- Update HUD with player entering world logic
+                    SinStatsFrame.HUD:OnPlayerEnteringWorld()
+                elseif event == "PLAYER_REGEN_ENABLED" then
+                    print("Combat ended")
+                    -- Update HUD when combat ends
+                    SinStatsFrame.HUD:OnCombatEnd()
+                elseif event == "PLAYER_REGEN_DISABLED" then
+                    print("Combat started")
+                    -- Update HUD when combat starts
+                    SinStatsFrame.HUD:OnCombatStart()
+                elseif event == "PLAYER_LEVEL_UP" then
+                    local level = ...
+                    print("Player level up to " .. level)
+                    -- Update HUD with new player level
+                    SinStatsFrame.HUD:UpdateLevel(level)
+                end
+            end)
         end
     end
+
     SinStatsFrame.HUD.Elapsed = 0 -- Restarts OnUpdate
     SinStatsFrame.HUD:GetScript("OnUpdate")(SinStatsFrame.HUD, 10)
     --	C_Timer.After(0, function()
