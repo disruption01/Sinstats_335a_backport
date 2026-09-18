@@ -493,7 +493,7 @@ function Ns.OnEventFunc(event, ...)
 		else Ns.manaTide = ((TideMana * 0.06) / 3) * 2 end
 		Ns.manaTide = Ns.manaTide
 		Ns.tideTimer = true
-		C_Timer.After(12, function()
+		Ns.TimerAfter(12, function()
 			Ns.manaTide = 0
 			Ns.tideTimer = false
 		end)

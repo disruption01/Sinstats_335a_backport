@@ -65,7 +65,7 @@ local function OnLeaveFunc(self)
 		if newTicker then
 			CancelTicker()
 		end
-		newTicker = C_Timer.NewTicker(1, CancelTicker)
+		newTicker = Ns.NewTicker(1, CancelTicker)
 	end
 end
 
@@ -109,7 +109,7 @@ local function UpdateProfiles()
 end
 
 function W.DropList(parent)
-	local f = CreateFrame("Frame", nil, parent, BackdropTemplateMixin and "BackdropTemplate")
+	local f = CreateFrame("Frame", nil, parent)
 	f:SetSize(140, dropSliderHeight)
 	f.SpecialType = "DropList"
 	AddTipText(f)
@@ -143,7 +143,7 @@ function W.DropList(parent)
 	f.Text:SetPoint("TOPLEFT", 4, 0)
 	f.Text:SetPoint("BOTTOMRIGHT", f.DropButton, "BOTTOMLEFT", -4, 0)
 	
-	f.List = CreateFrame("Frame", nil, f, BackdropTemplateMixin and "BackdropTemplate")
+	f.List = CreateFrame("Frame", nil, f)
 	f.List:Hide()
 	f.List:SetSize(150, 70)
 	f.List:SetPoint("TOPLEFT", f, "BOTTOMLEFT", 0, 0.6)

@@ -145,54 +145,75 @@ Ns.StatToDefaultOrder = {}
 local byPlayerClassId
 
 function Ns:GetSpellIcon(lookup, flags)
-	local icon, path
+	local icon
 	if type(lookup) == "table" then
-		if WOW_PROJECT_ID and WOW_PROJECT_MAINLINE and WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
-			if lookup.spell and not Ns.Band(flags, Ns.ForceIcon)  then
-				icon = C_Spell.GetSpellInfo(lookup.spell)
-				icon = icon.iconID
-			elseif lookup.item and not Ns.Band(flags, Ns.ForceIcon)  then
-				_,_,_,_,icon = C_Item.GetItemInfoInstant(lookup.item)
-			elseif lookup.currency and not Ns.Band(flags, Ns.ForceIcon)  then
-				icon = C_CurrencyInfo.GetCurrencyInfo(lookup.currency)
-				icon = icon.iconFileID
+		-- This backport runs on the original 3.3.5a client. Prefer the explicit
+		-- legacy path even if another addon has created modern C_* globals.
+		if Ns.Is335 then
+			if lookup.spell and not Ns.Band(flags, Ns.ForceIcon) then
+				icon = select(3, GetSpellInfo(lookup.spell))
+			elseif lookup.item and not Ns.Band(flags, Ns.ForceIcon) then
+				icon = select(10, GetItemInfo(lookup.item))
+			elseif lookup.currency and not Ns.Band(flags, Ns.ForceIcon) then
+				local info = Ns.GetCurrencyInfo335 and Ns.GetCurrencyInfo335(lookup.currency)
+				icon = info and info.iconFileID
 			elseif lookup.icon then
 				icon = lookup.icon
-				if not icon or strtrim(icon) == "" then
-					icon = "NoIcon"
+			end
+		elseif WOW_PROJECT_ID and WOW_PROJECT_MAINLINE and WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
+			if lookup.spell and not Ns.Band(flags, Ns.ForceIcon) then
+				local info = C_Spell and C_Spell.GetSpellInfo and C_Spell.GetSpellInfo(lookup.spell)
+				icon = info and info.iconID
+			elseif lookup.item and not Ns.Band(flags, Ns.ForceIcon) then
+				if C_Item and C_Item.GetItemInfoInstant then
+					_,_,_,_,icon = C_Item.GetItemInfoInstant(lookup.item)
 				end
-				if not strfind(icon, "\\") and not strfind(icon, "/") then
-					icon = Ns.TexturePath .. icon
-				end
+			elseif lookup.currency and not Ns.Band(flags, Ns.ForceIcon) then
+				local info = C_CurrencyInfo and C_CurrencyInfo.GetCurrencyInfo and C_CurrencyInfo.GetCurrencyInfo(lookup.currency)
+				icon = info and info.iconFileID
+			elseif lookup.icon then
+				icon = lookup.icon
 			end
 		else
-			if lookup.spell and not Ns.Band(flags, Ns.ForceIcon)  then
+			if lookup.spell and not Ns.Band(flags, Ns.ForceIcon) then
 				icon = select(3, GetSpellInfo(lookup.spell))
-			elseif lookup.item and not Ns.Band(flags, Ns.ForceIcon)  then
-				icon = select(5, GetItemInfoInstant(lookup.item))
-			elseif lookup.currency and not Ns.Band(flags, Ns.ForceIcon)  then
-				icon = C_CurrencyInfo.GetCurrencyInfo(lookup.currency)
-				icon = icon.iconFileID
+			elseif lookup.item and not Ns.Band(flags, Ns.ForceIcon) then
+				if GetItemInfoInstant then
+					icon = select(5, GetItemInfoInstant(lookup.item))
+				else
+					icon = select(10, GetItemInfo(lookup.item))
+				end
+			elseif lookup.currency and not Ns.Band(flags, Ns.ForceIcon) then
+				local info = C_CurrencyInfo and C_CurrencyInfo.GetCurrencyInfo and C_CurrencyInfo.GetCurrencyInfo(lookup.currency)
+				icon = info and info.iconFileID
 			elseif lookup.icon then
 				icon = lookup.icon
-				if not icon or strtrim(icon) == "" then
-					icon = "NoIcon"
-				end
-				if not strfind(icon, "\\") and not strfind(icon, "/") then
-					icon = Ns.TexturePath .. icon
-				end
+			end
+		end
+
+		if lookup.icon and (not icon or icon == "") then
+			icon = lookup.icon
+		end
+		if type(icon) == "string" then
+			if strtrim(icon) == "" then
+				icon = "NoIcon"
+			end
+			if not strfind(icon, "\\") and not strfind(icon, "/") then
+				icon = Ns.TexturePath .. icon
 			end
 		end
 	else
 		icon = lookup
 	end
+
+	-- Missing spell/item/currency data must never abort the configuration UI.
+	if not icon or icon == "" then
+		icon = Ns.TexturePath .. "NoIcon"
+	end
 	if Ns.Band(flags, Ns.IgnoreFormat) then
 		return icon
 	end
-	if icon then
-		icon = "|T"..icon..":0|t"
-	end
-	return icon or ""
+	return "|T"..icon..":0|t"
 end
 
 function Ns:InitStat(self, profile, statdata)
@@ -308,7 +329,7 @@ function Ns:InitialiseProfile(profile)
 		byPlayerClassId = {}
 		-- remove classes that don't exists in client version currently being played
 		for k, v in pairs(Ns.byPlayerClass) do
-			if not C_CreatureInfo.GetClassInfo(v) then
+			if not Ns.GetClassInfo335(v) then
 				Ns.byPlayerClass[k] = nil
 			end
 		end

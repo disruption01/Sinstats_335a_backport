@@ -179,10 +179,10 @@ function Ns.FunctionList.RepairCost(HUD, data, options, ...)
 
 	for bagNum = 0,4 do
 	local cost = 0
-		for bagSlot = 1,C_Container.GetContainerNumSlots(bagNum) do
-			local item =C_Container.GetContainerItemLink (bagNum, bagSlot)
+		for bagSlot = 1,Ns.GetContainerNumSlots335(bagNum) do
+			local item =Ns.GetContainerItemLink335(bagNum, bagSlot)
 			if (item) then
-				local dur, max = C_Container.GetContainerItemDurability(bagNum, bagSlot)
+				local dur, max = Ns.GetContainerItemDurability335(bagNum, bagSlot)
 				if (dur~=nil) then
 					--local dif = max - dur
 					Ns.repairTooltip:ClearLines()

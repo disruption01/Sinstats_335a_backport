@@ -624,6 +624,7 @@ L["DisplayOrderMenu"] = "Layout"
 L["EventsMenu"] = "Events"
 L["ProfilesMenu"] = "Profiles"
 L["FAQMenu"] = "FAQ"
+L["CreditsMenu"] = "Credits"
 L["Melee"] = "Melee"
 L["MeleeDescription"] = ""
 L["Defense"] = "Defense"
@@ -724,6 +725,16 @@ L["FAQSecond"] = Ns.MiscIcon .. Ns.Colors.Green .. "How to display the stats in 
 L["FAQThird"] = Ns.MiscIcon .. Ns.Colors.Green .. "How to display the stats on one single row|r\n\n " .. Ns.SettingsIcon .. "Settings >> " .. Ns.LayoutIcon .. "Layout: Click the 1 button in " .. Ns.Colors.Green .. "Row Presets|r or manually by activating all the " .. Ns.ColumnIcon .. "checkboxes next to each stats"
 L["FAQForth"] = Ns.MiscIcon .. Ns.Colors.Green .. "How to re-order the stats|r\n\n " .. Ns.SettingsIcon .. "Settings >> " .. Ns.LayoutIcon .. "Layout: Drag and drop the stats on the list"
 L["FAQFifth"] = Ns.MiscIcon .. Ns.Colors.Green .. "How to enable stats in-combat only or in other specific situations|r\n\n " .. Ns.SettingsIcon .. "Settings >> " .. Ns.EventsIcon .. "Events: Make the stats only visible in the selected events"
+
+L["CreditsText"] = "|cff71ffc9SinStats|r\n\n" ..
+	"Original addon by |cffffffffSinba|r\n" ..
+	"Upstream project: |cff71ffc9https://www.curseforge.com/wow/addons/sinstats|r\n" ..
+	"Upstream base used by this backport: |cffffffff5.902|r\n\n" ..
+	"World of Warcraft 3.3.5a (build 12340) backport and compatibility work by |cffff7a00Disruption01|r.\n\n" ..
+	"GitHub: |cff71ffc9https://github.com/disruption01/Sinstats_335a_backport|r\n" ..
+	"Discord: |cff71ffc9https://discord.gg/eJ5MaVNnBm|r\n" ..
+	"Support: |cff71ffc9https://linktr.ee/disruption01|r\n\n" ..
+	"Support is completely optional and does not unlock addon functionality."
 
 -- Events
 L["EventEnable"] = "Enable"

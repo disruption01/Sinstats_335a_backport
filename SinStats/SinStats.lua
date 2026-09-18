@@ -5,7 +5,7 @@ local AddName, Ns = ...
 
 local L = Ns.L
 local _, _, _, tocversion = GetBuildInfo()
-local addVer = GetAddOnMetadata(AddName, "Version") or "5.902-335.0.6"
+local addVer = GetAddOnMetadata(AddName, "Version") or "1.0.0"
 
 local LSM = LibStub("LibSharedMedia-3.0")
 local headerWidth, headerHeight, updateSpeed = 200, 15, 1
@@ -220,7 +220,7 @@ f.HUD:SetScript("OnEvent", function (self, event, ...)
 			Ns.OnEventFunc(event, ...)
 		end)
 
-		C_Timer.After(1, function()
+		Ns.TimerAfter(1, function()
 			self:GetScript("OnEvent")(SinStatsFrame, "UPDATE_INVENTORY_DURABILITY")
 			self:GetScript("OnEvent")(SinStatsFrame, "PLAYER_EQUIPMENT_CHANGED")
 		end)

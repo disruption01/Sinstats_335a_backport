@@ -7,7 +7,7 @@ local orangeColor = { r=1, g=0.741, b=0.313 }
 local white = { r=1, g=1, b=1 }
 Ns.ConfigDefaultFont = "Fonts/ARIALN.ttf"
 --Ns.ConfigDefaultFont = "Interface\\AddOns\\"..AddName.."\\fonts\\Accidental Presidency.ttf"
-local addVer = GetAddOnMetadata(AddName, "Version") or "5.902-335.0.6"
+local addVer = GetAddOnMetadata(AddName, "Version") or "1.0.0"
 
 
 
@@ -27,6 +27,7 @@ Ns.SettingsGroupOrder = {
 	[5] = { stat="Events", svnotintable=true, icon="Events", widget={ type="TopTab" }, },
 	[6] = { stat="Profiles", svnotintable=true, icon="Profiles", widget={ type="TopTab" }, },
 	[7] = { stat="FAQ", svnotintable=true, icon="Misc", widget={ type="TopTab" }, },
+	[8] = { stat="Credits", svnotintable=true, icon="Misc", widget={ type="TopTab" }, },
 }
 
 Ns.SettingsDisplayOrder = {
@@ -65,6 +66,7 @@ Ns.SettingsDisplayOrder = {
 	{ stat="EventCombat", spellclass="Events", icon="", default=false, widget={ type="CheckBox", }, },
 	{ stat="Profiles", icon="", svnotintable=true, spellclass="Profiles", widget={ type="ProfileConfig", data="Profiles", width=200, }, },
 	{ stat="FAQ", icon="", svnotintable=true, spellclass="FAQ", widget={ type="FAQConfig", data="Profiles", width=200, }, },
+	{ stat="Credits", icon="", svnotintable=true, spellclass="Credits", widget={ type="CreditsConfig", data="Profiles", width=200, }, },
 	{ stat="StatOrderSettings", icon="", svnotintable=true, spellclass="DisplayOrder", widget={ type="DisplayOrderConfig", data="Profiles", width=200}, },
 }
 
@@ -476,6 +478,6 @@ VersionText:SetText("Version: |cff00f26d" .. addVer .. "|r")
 
 local authorText = SinStatsInterface.panel:CreateFontString("authorText", "OVERLAY", "GameFontHighlight")
 authorText:SetPoint("TOP", "VersionText", "BOTTOM", 0, -10)
-authorText:SetText("Author: |cff00f26dSinba|r")
+authorText:SetText("Original author: |cff00f26dSinba|r   3.3.5a backport: |cffff7a00Disruption01|r")
 
 end

@@ -1,12 +1,16 @@
 ## Interface: 30300
-## Title: |cff71FFC9SinStats|r
+## Title: |cff71FFC9SinStats|r |cffff7a00v1.0.0|r
 ## Author: Sinba
-## Notes : Character Stats
-## Version: 5.902-335.0.6
-## X-Website: https://www.curseforge.com/wow/addons/sinstats
-## X-Curse-Project-ID: 389802
+## X-Maintainer: Disruption01
+## X-Backport-Author: Disruption01
+## Notes: Character Stats for World of Warcraft 3.3.5a
+## Version: 1.0.0
+## X-Upstream-Version: 5.902
+## X-Original-Project: https://www.curseforge.com/wow/addons/sinstats
+## X-GitHub: https://github.com/disruption01/Sinstats_335a_backport
+## X-Discord: https://discord.gg/eJ5MaVNnBm
+## X-Support: https://linktr.ee/disruption01
 ## SavedVariables: SinStatsDB
-
 
 Compat335.lua
 Locales\core.lua

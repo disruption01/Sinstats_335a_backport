@@ -117,18 +117,6 @@ function Ns.GetItemClassSubClass335(item)
     return 0, 0
 end
 
-if not GetItemInfoInstant then
-    function GetItemInfoInstant(item)
-        local itemID = tonumber(item)
-        if not itemID and type(item) == "string" then
-            itemID = tonumber(item:match("item:(%d+)"))
-        end
-        local _, _, _, _, _, itemType, itemSubType, _, equipLoc, icon = GetItemInfo(item)
-        local classID, subClassID = Ns.GetItemClassSubClass335(item)
-        return itemID, itemType, itemSubType, equipLoc, icon, classID, subClassID
-    end
-end
-
 -- 3.3.5a exposes rating haste but not the later aggregate haste helpers.
 if not GetMeleeHaste then
     function GetMeleeHaste()
@@ -147,16 +135,13 @@ if not GetHitModifier then
     end
 end
 
--- Modern namespaces used by the Wrath Classic release.
-C_AddOns = C_AddOns or {}
-C_AddOns.GetAddOnMetadata = C_AddOns.GetAddOnMetadata or GetAddOnMetadata
+-- Keep compatibility helpers private to SinStats. Do not expose modern C_*
+-- namespaces globally on the 3.3.5a client: unrelated addons may use those
+-- globals for feature detection and enter code paths the client cannot support.
+Ns.GetContainerNumSlots335 = GetContainerNumSlots
+Ns.GetContainerItemLink335 = GetContainerItemLink
+Ns.GetContainerItemDurability335 = GetContainerItemDurability
 
-C_Container = C_Container or {}
-C_Container.GetContainerNumSlots = C_Container.GetContainerNumSlots or GetContainerNumSlots
-C_Container.GetContainerItemLink = C_Container.GetContainerItemLink or GetContainerItemLink
-C_Container.GetContainerItemDurability = C_Container.GetContainerItemDurability or GetContainerItemDurability
-
-C_CreatureInfo = C_CreatureInfo or {}
 do
     local classes = {
         [1] = { className = "Warrior", classFile = "WARRIOR", classID = 1 },
@@ -170,7 +155,7 @@ do
         [9] = { className = "Warlock", classFile = "WARLOCK", classID = 9 },
         [11] = { className = "Druid", classFile = "DRUID", classID = 11 },
     }
-    C_CreatureInfo.GetClassInfo = C_CreatureInfo.GetClassInfo or function(id) return classes[id] end
+    function Ns.GetClassInfo335(id) return classes[id] end
 end
 
 -- Currency IDs used by Wrath Classic do not exist as a query API on the 3.3.5 client.
@@ -203,19 +188,12 @@ local function LegacyCurrencyInfo(id)
     return "Unsupported currency", 0, "Interface\\Icons\\INV_Misc_QuestionMark"
 end
 
-if not GetCurrencyInfo then GetCurrencyInfo = LegacyCurrencyInfo end
-C_CurrencyInfo = C_CurrencyInfo or {}
-C_CurrencyInfo.GetCurrencyInfo = C_CurrencyInfo.GetCurrencyInfo or function(id)
+function Ns.GetCurrencyInfo335(id)
     local name, quantity, icon = LegacyCurrencyInfo(id)
     return { name = name, quantity = quantity or 0, iconFileID = icon }
 end
 
-C_WowTokenPublic = C_WowTokenPublic or {}
-C_WowTokenPublic.UpdateMarketPrice = C_WowTokenPublic.UpdateMarketPrice or function() end
-C_WowTokenPublic.GetCurrentMarketPrice = C_WowTokenPublic.GetCurrentMarketPrice or function() return 0 end
-
--- Lightweight C_Timer implementation for 3.3.5a.
-C_Timer = C_Timer or {}
+-- Lightweight timer implementation kept inside the SinStats namespace.
 do
     local timerFrame = CreateFrame("Frame")
     local timers = {}
@@ -251,8 +229,10 @@ do
             end
         end
     end)
-    C_Timer.After = C_Timer.After or function(delay, callback) AddTimer(delay, callback) end
-    C_Timer.NewTicker = C_Timer.NewTicker or function(interval, callback, iterations)
+    function Ns.TimerAfter(delay, callback)
+        return AddTimer(delay, callback)
+    end
+    function Ns.NewTicker(interval, callback, iterations)
         return AddTimer(interval, callback, interval, iterations)
     end
 end

@@ -279,7 +279,7 @@ local function OnLeaveFunc(self)
 		if newTicker then
 			CancelTicker()
 		end
-		newTicker = C_Timer.NewTicker(1, CancelTicker)
+		newTicker = Ns.NewTicker(1, CancelTicker)
 	end
 end
 
@@ -681,7 +681,7 @@ end
 --			Radio			--
 ------------------------------
 function W.Radio(parent)
-	local f = CreateFrame("Frame", nil, UIParent, BackdropTemplateMixin and "BackdropTemplate")
+	local f = CreateFrame("Frame", nil, UIParent)
 	f:SetSize(checkBoxHeight, checkBoxHeight)
 	f.SpecialType = "Radio"
 	f:SetBackdrop(RadioBG)
@@ -858,7 +858,7 @@ end
 --			Droplists			--
 ----------------------------------
 function W.DropList(parent)
-	local f = CreateFrame("Frame", nil, parent, BackdropTemplateMixin and "BackdropTemplate")
+	local f = CreateFrame("Frame", nil, parent)
 	f:SetSize(140, 20)
 	f.SpecialType = "DropList"
 	AddTipText(f)
@@ -887,7 +887,7 @@ function W.DropList(parent)
 	f.Text:SetPoint("TOPLEFT", 4, -4)
 	f.Text:SetPoint("BOTTOMRIGHT", f.DropButton, "BOTTOMLEFT", -4, 0)
 
-	f.List = CreateFrame("Frame", nil, f, BackdropTemplateMixin and "BackdropTemplate")
+	f.List = CreateFrame("Frame", nil, f)
 	f.List:Hide()
 	f.List:SetSize(150, 70)
 	f.List:SetPoint("TOPLEFT", f, "BOTTOMLEFT", 0, 0.6)
@@ -1503,7 +1503,7 @@ end
 --			Sliders			--
 ------------------------------
 function W.Slider(parent)
-	local f = CreateFrame("Slider", nil, parent, BackdropTemplateMixin and "BackdropTemplate")
+	local f = CreateFrame("Slider", nil, parent)
 	f.SpecialType = "Slider"
 	f:SetSize(100, 12)
 	f:SetBackdrop(SliderBG)
@@ -1936,7 +1936,7 @@ local function SetSpacer(self, open)
 end
 
 function W.DragStat(parent)
-	local f = CreateFrame("Frame", nil, parent, "BackdropTemplate")
+	local f = CreateFrame("Frame", nil, parent)
 	f.SpecialType = "DragStat"
 	f:SetSize(DSWidth, DSHeight)
 	f:EnableMouse(false)
@@ -2395,4 +2395,33 @@ function Mixins.functions.FAQConfig.Init(self, anchorframe, parent)
 	self.Anchoreframe = anchorframe
 	self.MyInformation = parent.DisplayOrder[self:GetID()]
 	self.DisplayOrder = parent.DisplayOrder
+end
+
+
+------------------------------
+--          Credits         --
+------------------------------
+function W.CreditsConfig(parent)
+	local f = CreateFrame("Frame", "$parentCredits", parent)
+	f.SpecialType = "CreditsConfig"
+	f:SetSize(560, 300)
+	Mixin(f, Mixins.functions.CreditsConfig)
+
+	f.Text = f:CreateFontString(nil, "OVERLAY")
+	f.Text:SetFont(Ns.ConfigDefaultFont, Ns.ConfigDefaultFontSize - 3)
+	f.Text:SetPoint("TOPLEFT", 0, 0)
+	f.Text:SetWidth(560)
+	f.Text:SetJustifyH("LEFT")
+	f.Text:SetJustifyV("TOP")
+	f.Text:SetText(L["CreditsText"])
+
+	return f
+end
+
+Mixins.functions.CreditsConfig = {}
+function Mixins.functions.CreditsConfig.Init(self, anchorframe, parent)
+	self.Anchoreframe = anchorframe
+	self.MyInformation = parent.DisplayOrder[self:GetID()]
+	self.DisplayOrder = parent.DisplayOrder
+	self.Text:SetText(L["CreditsText"])
 end
