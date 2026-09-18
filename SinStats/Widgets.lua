@@ -2401,19 +2401,74 @@ end
 ------------------------------
 --          Credits         --
 ------------------------------
+local function CreateCreditsLabel(parent, text, y, size, color)
+	local label = parent:CreateFontString(nil, "OVERLAY")
+	label:SetFont(Ns.ConfigDefaultFont, size or (Ns.ConfigDefaultFontSize - 3))
+	label:SetPoint("TOPLEFT", parent, "TOPLEFT", 0, y)
+	label:SetJustifyH("LEFT")
+	if color then
+		label:SetTextColor(color.r, color.g, color.b)
+	end
+	label:SetText(text)
+	return label
+end
+
+local function CreateCreditsLink(parent, caption, value, y)
+	local captionText = CreateCreditsLabel(parent, caption, y, Ns.ConfigDefaultFontSize - 4, orangeColor)
+
+	local box = CreateFrame("EditBox", nil, parent)
+	box:SetAutoFocus(false)
+	box:SetFont(Ns.ConfigDefaultFont, Ns.ConfigDefaultFontSize - 4)
+	box:SetSize(510, 22)
+	box:SetPoint("TOPLEFT", parent, "TOPLEFT", 0, y - 19)
+	box:SetTextInsets(6, 6, 0, 0)
+	box:SetText(value)
+	box:SetTextColor(0.443, 1, 0.788)
+	box:SetBackdrop({
+		bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+		tile = true,
+		tileSize = 16,
+		edgeSize = 10,
+		insets = { left = 3, right = 3, top = 3, bottom = 3 },
+	})
+	box:SetBackdropColor(0.05, 0.05, 0.05, 0.9)
+	box:SetBackdropBorderColor(0.25, 0.25, 0.25, 1)
+	box:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
+	box:SetScript("OnEditFocusGained", function(self) self:HighlightText() end)
+	box:SetScript("OnMouseUp", function(self)
+		self:SetFocus()
+		self:HighlightText()
+	end)
+	box:SetScript("OnTextChanged", function(self, userInput)
+		if userInput and self:GetText() ~= value then
+			self:SetText(value)
+			self:HighlightText()
+		end
+	end)
+
+	return captionText, box
+end
+
 function W.CreditsConfig(parent)
 	local f = CreateFrame("Frame", "$parentCredits", parent)
 	f.SpecialType = "CreditsConfig"
-	f:SetSize(560, 300)
+	f:SetSize(590, 330)
 	Mixin(f, Mixins.functions.CreditsConfig)
 
-	f.Text = f:CreateFontString(nil, "OVERLAY")
-	f.Text:SetFont(Ns.ConfigDefaultFont, Ns.ConfigDefaultFontSize - 3)
-	f.Text:SetPoint("TOPLEFT", 0, 0)
-	f.Text:SetWidth(560)
-	f.Text:SetJustifyH("LEFT")
-	f.Text:SetJustifyV("TOP")
-	f.Text:SetText(L["CreditsText"])
+	f.Title = CreateCreditsLabel(f, "|cff71ffc9SinStats|r", 0, Ns.ConfigDefaultFontSize + 2)
+	f.Original = CreateCreditsLabel(f, "Original addon by |cffffffffSinba|r", -34, Ns.ConfigDefaultFontSize - 2)
+	f.UpstreamBase = CreateCreditsLabel(f, "Upstream base used for this backport: |cffffffff5.902|r", -57, Ns.ConfigDefaultFontSize - 4)
+	f.Backport = CreateCreditsLabel(f, "World of Warcraft 3.3.5a (build 12340) backport and compatibility work by |cffff7a00Disruption01|r.", -82, Ns.ConfigDefaultFontSize - 4)
+	f.Backport:SetWidth(560)
+
+	f.UpstreamLabel, f.UpstreamLink = CreateCreditsLink(f, "Original project", "https://www.curseforge.com/wow/addons/sinstats", -119)
+	f.GitHubLabel, f.GitHubLink = CreateCreditsLink(f, "GitHub", "https://github.com/disruption01/Sinstats_335a_backport", -167)
+	f.DiscordLabel, f.DiscordLink = CreateCreditsLink(f, "Discord", "https://discord.gg/eJ5MaVNnBm", -215)
+	f.SupportLabel, f.SupportLink = CreateCreditsLink(f, "Support / Linktree", "https://linktr.ee/disruption01", -263)
+
+	f.Footer = CreateCreditsLabel(f, "Click a link field to select it for copying. Support is completely optional and does not unlock addon functionality.", -314, Ns.ConfigDefaultFontSize - 5)
+	f.Footer:SetWidth(570)
 
 	return f
 end
@@ -2421,7 +2476,6 @@ end
 Mixins.functions.CreditsConfig = {}
 function Mixins.functions.CreditsConfig.Init(self, anchorframe, parent)
 	self.Anchoreframe = anchorframe
-	self.MyInformation = parent.DisplayOrder[self:GetID()]
+	self.MyInformation = (parent.DisplayOrder and parent.DisplayOrder[self:GetID()]) or { stat="Credits" }
 	self.DisplayOrder = parent.DisplayOrder
-	self.Text:SetText(L["CreditsText"])
 end

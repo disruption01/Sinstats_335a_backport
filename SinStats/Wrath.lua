@@ -156,6 +156,11 @@ Ns.SpellClass = {
 	[6] = { stat="Resistance", icon="Resistance", },
 	[7] = { stat="Currency", icon="Currency", },
 	[8] = { stat="Misc", icon="Misc", },
+	[9] = { stat="Credits", icon="Misc", },
+}
+
+Ns.CreditsDisplayOrder = {
+	{ stat="Credits", icon="", spellclass="Credits", widget={ type="CreditsConfig" }, },
 }
 
 ------------------------------

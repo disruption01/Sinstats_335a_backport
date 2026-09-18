@@ -27,7 +27,6 @@ Ns.SettingsGroupOrder = {
 	[5] = { stat="Events", svnotintable=true, icon="Events", widget={ type="TopTab" }, },
 	[6] = { stat="Profiles", svnotintable=true, icon="Profiles", widget={ type="TopTab" }, },
 	[7] = { stat="FAQ", svnotintable=true, icon="Misc", widget={ type="TopTab" }, },
-	[8] = { stat="Credits", svnotintable=true, icon="Misc", widget={ type="TopTab" }, },
 }
 
 Ns.SettingsDisplayOrder = {
@@ -66,7 +65,6 @@ Ns.SettingsDisplayOrder = {
 	{ stat="EventCombat", spellclass="Events", icon="", default=false, widget={ type="CheckBox", }, },
 	{ stat="Profiles", icon="", svnotintable=true, spellclass="Profiles", widget={ type="ProfileConfig", data="Profiles", width=200, }, },
 	{ stat="FAQ", icon="", svnotintable=true, spellclass="FAQ", widget={ type="FAQConfig", data="Profiles", width=200, }, },
-	{ stat="Credits", icon="", svnotintable=true, spellclass="Credits", widget={ type="CreditsConfig", data="Profiles", width=200, }, },
 	{ stat="StatOrderSettings", icon="", svnotintable=true, spellclass="DisplayOrder", widget={ type="DisplayOrderConfig", data="Profiles", width=200}, },
 }
 
@@ -262,6 +260,19 @@ function Ns:UpdateProfile()
 end
 
 ----------------------------------
+--          Credits Page          --
+----------------------------------
+local function DisplayCredits(self, anchorframe, align)
+	local credits = Ns:GetWidget("CreditsConfig", anchorframe, 1)
+	anchorframe:AddWidget(credits)
+	credits:Init(anchorframe, self)
+	credits:ClearAllPoints()
+	credits:SetPoint("TOPLEFT", anchorframe, "TOPLEFT", 35, -68)
+	credits:Show()
+	anchorframe:SetAnchor(align, Ns.maxOptionsWidth, 390)
+end
+
+----------------------------------
 --			Main Menu			--
 ----------------------------------
 local function CreateMainMenu()
@@ -281,6 +292,10 @@ local function CreateMainMenu()
 			f.GroupOrder = Ns.SettingsGroupOrder
 			f.NextDisplayOrder = Ns.SettingsDisplayOrder
 --			f.SvTable = Ns.Profile
+		elseif v.stat == "Credits" then -- Dedicated top-level Credits page
+			f.DisplayOrder = Ns.CreditsDisplayOrder
+			f.GroupOrder = Ns.SpellClass
+			f.NextDisplayOrder = Ns.CreditsDisplayOrder
 		else  -- SpellClass Tabs
 			f.DisplayOrder = Ns.DefaultOrder
 			f.GroupOrder = Ns.SpellClass
@@ -288,7 +303,7 @@ local function CreateMainMenu()
 --			f.SvTable = Ns.Profile.Stats
 		end
 		f.MyInformation = v
-		f.DisplayFunc = DisplayHorizontal
+		f.DisplayFunc = v.stat == "Credits" and DisplayCredits or DisplayHorizontal
 		if i == 0 then
 			f:SetPoint("TOPLEFT", Ns.ConfigFrame.TopBorder, "LEFT", 0, mainMenuYOffset) -- the first main menu item position relative to the top border line
 			last = f
