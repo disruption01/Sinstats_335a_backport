@@ -1,0 +1,30 @@
+SinStats 5.902-335.0.6
+- Fixed Settings page construction on WoW 3.3.5a by not registering unsupported OnHyperlinkEnter/OnHyperlinkLeave scripts on generic Separator frames.
+- Those hyperlink handlers are cosmetic only; 3.3.5a rejects them at SetScript(), which previously aborted the Settings -> HUD page before its controls were created.
+- Expected result: the main Settings/HUD controls can now finish rendering instead of leaving the page blank.
+
+SinStats 5.902-335.0.5
+- Defer auto-opening HUD/stat subpages until after the parent options page has completed layout.
+- Fixes Settings -> HUD/Fonts/Display child pages appearing empty on 3.3.5a despite the selected tab.
+- Clears deferred tab state when pooled widgets are reused.
+
+SinStats 5.902-335.0.4
+- Fixed legacy EditBox creation: 3.3.5a InputBoxTemplate has no modern .Left/.Right/.Middle fields.
+- Fixed Slider constructor to use the provided parent.
+- Fixed a compatibility helper typo in Display Order saving.
+- The HUD settings page can now finish constructing its widgets, allowing the layout pass to position them instead of leaving partially-created controls stacked at the center.
+
+SinStats 5.902 - 3.3.5a backport
+
+335.0.3
+- Added a 3.3.5a compatibility path for SetEnabled() using Enable()/Disable().
+- Fixes the Settings HUD dropdown crash in Widgets.lua.
+- Includes the 335.0.2 legacy SetPoint/layout fixes.
+
+335.0.2
+- Fixed Movement Speed crash on 3.3.5a where GetUnitSpeed returns fewer values.
+- Fixed Settings/HUD option widgets overlapping by using the explicit legacy SetPoint signature.
+- Fixed the same legacy SetPoint issue in Display Order and FAQ panels.
+
+335.0.1
+- Initial 3.3.5a compatibility layer.
